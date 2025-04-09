@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Project Details - Sahil Shaikh Portfolio</title>
+  <meta content="Detailed view of Sahil Shaikh's AI/ML projects" name="description">
+  <meta content="AI, Machine Learning, Data Science, Python, Deep Learning" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    .portfolio-details-section {
+      padding: 60px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .portfolio-details-section:last-child {
+      border-bottom: none;
+    }
+    .project-nav {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 999;
+    }
+    .project-nav a {
+      display: block;
+      width: 12px;
+      height: 12px;
+      margin: 10px 0;
+      background: #ddd;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    .project-nav a:hover, .project-nav a.active {
+      background: #0563bb;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="profile-img">
+      <img src="assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Sahil Shaikh</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://medium.com/@SS-2005" class="medium"><i class="bi bi-medium"></i></a>
+      <a href="https://leetcode.com/u/SS-2005/" class="code"><i class="bi bi-code-square"></i></a>
+      <a href="https://www.linkedin.com/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Projects</a></li>
+        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Project Details</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Project Details</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Project Navigation Dots -->
+    <div class="project-nav">
+      <a href="#project1" title="Dog Breed Identification"></a>
+      <a href="#project2" title="Object Placement"></a>
+      <a href="#project3" title="Sentiment Analysis"></a>
+      <a href="#project4" title="Heart Disease Predictor"></a>
+      <a href="#project5" title="Face Recognition"></a>
+      <a href="#project6" title="Customer Churn"></a>
+    </div>
+
+    <!-- Project 1 - Dog Breed Identification -->
+    <section id="project1" class="portfolio-details-section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/dog-vision-1.jpg" alt="Dog Breed Identification Interface">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/dog-vision-2.jpg" alt="Dog vision">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/dog-vision-3.jpg" alt="Sample">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Category</strong>: Deep Learning</li>
+                <li><strong>Technologies</strong>: TensorFlow, Transfer Learning</li>
+                <li><strong>Project Date</strong>: March 2024</li>
+                <li><strong>Dataset</strong>: <a href="https://www.kaggle.com/c/dog-breed-identification" target="_blank">Kaggle Dog Vision</a></li>
+                <li><strong>Project URL</strong>: <a href="https://github.com/SS-2005/DIP-Dog_Identification_Project" target="_blank">GitHub Repository</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Dog Breed Identification Project</h2>
+              <p>A sophisticated deep learning model capable of identifying 120 different dog breeds from images with high accuracy. This project demonstrates the power of transfer learning in computer vision applications.</p>
+              
+              <h3>Technical Details</h3>
+              <ul>
+                <li>Implemented using MobileNetV2 as the base model with custom classification layers</li>
+                <li>Achieved 92% accuracy on the validation set through careful hyperparameter tuning</li>
+                <li>Utilized data augmentation techniques to improve model generalization</li>
+                <li>Developed a user-friendly interface for real-time breed prediction</li>
+              </ul>
+              
+              <h3>Key Features</h3>
+              <ul>
+                <li>Handles various dog poses and lighting conditions</li>
+                <li>Includes breed information and characteristics in the output</li>
+                <li>Optimized for both performance and accuracy</li>
+              </ul>
+              
+              <h3>Challenges & Solutions</h3>
+              <ul>
+                <li><strong>Class Imbalance:</strong> Implemented weighted loss function and oversampling techniques</li>
+                <li><strong>Similar Breeds:</strong> Added attention mechanisms to focus on distinguishing features</li>
+                <li><strong>Accuracy:</strong>Used the concept of transfer learning then trained further on.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project 2 - Object Placement -->
+    <section id="project2" class="portfolio-details-section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/object-placement-1.jpg" alt="Dog Breed Identification Interface">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/object-placement-2.jpg" alt="Dog vision">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/object-placement-1.jpg" alt="Sample">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Category</strong>: AI/Computer Vision</li>
+                <li><strong>Technologies</strong>: OpenCV, PyTorch</li>
+                <li><strong>Project Date</strong>: April 2024</li>
+                <li><strong>Dataset</strong>: OPA Dataset</li>
+                <li><strong>Project URL</strong>: <a href="https://github.com/SS-2005/AOPM-AdvancedObjectPlacementModel" target="_blank">GitHub Repository</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Advanced Object Placement Model</h2>
+              <p>This project implements an advanced object placement system that automatically places an object into a background image with realistic positioning and lighting.</p>
+              
+              <h3>Technical Details</h3>
+              <ul>
+                <li>Image preprocessing</li>
+                <li>Trained on OPA dataset</li>
+                <li>Includes shadow generation based on light source estimation</li>
+                <li>CPU and GPU compatible</li>
+              </ul>
+              
+              <h3>Key Features</h3>
+              <ul>
+                <li>Automatic object segmentation and extraction</li>
+                <li>Physics-based placement suggestions</li>
+                <li>Real-time preview of placement results</li>
+                <li>Unlimited Generation</li>
+              </ul>
+              
+              <h3>Applications</h3>
+              <ul>
+                <li>E-commerce product visualization</li>
+                <li>Augmented reality applications</li>
+                <li>Interior design planning</li>
+                <li>Game development asset placement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project 3 - Movie Review Sentiment -->
+    <section id="project3" class="portfolio-details-section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/sentiment-1.jpg" alt="Sentiment Analysis Interface">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/sentiment-2.jpg" alt="Model Performance">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/sentiment-1.jpg" alt="Word Cloud">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Category</strong>: Machine Learning</li>
+                <li><strong>Technologies</strong>: Scikit-learn, Numpy, Pandas</p></li>
+                <li><strong>Project Date</strong>: February 2024</li>
+                <li><strong>Dataset</strong>: IMDB Reviews </li>
+                <li><strong>Accuracy</strong>: 89.2% on test set</li>
+                <li><strong>Project URL</strong>: <a href="hhttps://github.com/SS-2005/Review_Sentiment_Analysis" target="_blank">GitHub Repository</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Movie Review Sentiment Analysis</h2>
+              <p>A machine learning model that classifies movie reviews as positive or negative.</p>
+              
+              <h3>Technical Approach</h3>
+              <ul>
+                <li>Trained on reviews dataset</li>
+                <li>Implemented custom word embeddings trained on movie-specific corpus</li>
+                <li>Skills :Flask,ML</li>
+              </ul>
+              
+              <h3>Key Features</h3>
+              <ul>
+                <li>Real-time sentiment prediction</li>
+                <li>Interactive visualization of sentiment trends</li>
+                <li>Applicable on text</li>
+              </ul>
+              
+              <h3>Business Applications</h3>
+              <ul>
+                <li>Box office performance prediction</li>
+                <li>Marketing campaign effectiveness analysis</li>
+                <li>Audience segmentation</li>
+                <li>Content recommendation systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project 4 - Heart Disease Predictor -->
+    <section id="project4" class="portfolio-details-section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/heart-disease-1.jpg" alt="Heart Disease Predictor Interface">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/heart-disease-2.jpg" alt="Feature Importance">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/heart-disease-3.jpg" alt="Model Comparison">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Category</strong>: Healthcare ML</li>
+                <li><strong>Technologies</strong>: Scikit-learn, Pandas,Numpy, Ensemble</li>
+                <li><strong>Project Date</strong>: January 2024</li>
+                <li><strong>Dataset</strong>: UCI Heart Disease Dataset</li>
+                <li><strong>Accuracy</strong>: 87.5% (5-fold cross-validation)</li>
+                <li><strong>Project URL</strong>: <a href="https://github.com/SS-2005/Heart_Disease_Predictor" target="_blank">GitHub Repository</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Heart Disease Predictor</h2>
+              <p>A machine learning model that predicts the likelihood of heart disease based on medical attributes and lifestyle factors.</p>
+              
+              <h3>Technical Implementation</h3>
+              <ul>
+                <li>Evaluated 8 different classification algorithms</li>
+                <li>Implemented comprehensive feature engineering pipeline</li>
+                <li>Developed risk probability calibration system</li>
+                <li>Trained on UCG heart-disease kaggle dataset</li>
+              </ul>
+              
+              <h3>Key Features</h3>
+              <ul>
+                <li>Interactive feature importance explanation</li>
+                <li>Predicts on real-impactful medical attributes</li>
+                <li>Graphs and visualization</li>
+              </ul>
+              
+              <h3>Medical Parameters Used</h3>
+              <ul>
+                <li>Age, sex, blood pressure, cholesterol</li>
+                <li>ECG results, exercise-induced angina</li>
+                <li>Trained on more than 250 samples</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project 5 - Face Recognition -->
+    <section id="project5" class="portfolio-details-section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/face-1.jpg" alt="Face Detection Interface">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/face-2.jpg" alt="Recognition Samples">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Category</strong>: Deep Learning/Computer Vision</li>
+                <li><strong>Technologies</strong>: OpenCV</li>
+                <li><strong>Project Date</strong>: December 2023</li>
+                <li><strong>Dataset</strong>: Custom Collected (50 identities)</li>
+                <li><strong>Accuracy</strong>: 94.3% on test set</li>
+                <li><strong>Project URL</strong>: <a href="https://github.com/SS-2005/FDR-FaceDetectionAndRecognition" target="_blank">GitHub Repository</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Face Detection and Recognition System</h2>
+              <p>A face recognition system that detects faces and matches them against a database of known individuals.</p>
+              
+              <h3>Technical Architecture</h3>
+              <ul>
+                <li>Two-stage pipeline: detection → recognition</li>
+                <li>Image Processing</li>
+                <li>FaceNet embeddings for face representation</li>
+                <li>Used Har_face.yml pre-trained model</li>
+              </ul>
+              
+              <h3>Key Features</h3>
+              <ul>
+                <li>Image Recognition</li>
+                <li>Adaptive recognition confidence thresholds</li>
+                <li>Detects face from images</li>
+                <li>Multi-face tracking and identification</li>
+              </ul>
+              
+              <h3>Performance Optimizations</h3>
+              <ul>
+                <li>Quantized models for faster inference</li>
+                <li>Batch processing of detected faces</li>
+                <li>Transfer Learning</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project 6 - Customer Churn -->
+    <section id="project6" class="portfolio-details-section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/churn-1.jpg" alt="Churn Analysis Dashboard">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/churn-2.jpg" alt="Feature Importance">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/churn-3.jpg" alt="Retention Strategies">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Category</strong>: Predictive Analytics</li>
+                <li><strong>Technologies</strong>: Machine Learning, Scikit-learn</li>
+                <li><strong>Project Date</strong>: November 2023</li>
+                <li><strong>Dataset</strong>: Kaggle dataset</li>
+                <li><strong>Accuracy</strong>: 82.7%</li>
+                <li><strong>Project URL</strong>: <a href="https://github.com/SS-2005/CustMetric" target="_blank">GitHub Repository</a></li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Customer Churn Prediction System</h2>
+              <p>Predictive model that identifies customers at risk of churning with actionable insights for retention strategies.</p>
+              
+              <h3>Analytical Approach</h3>
+              <ul>
+                <li>Comprehensive EDA to identify churn patterns</li>
+                <li>Feature engineering focusing on behavioral metrics</li>
+                <li>Implemented propensity scoring system</li>
+              </ul>
+              
+              <h3>Key Features</h3>
+              <ul>
+                <li>Interactive risk segmentation dashboard</li>
+                <li>Personalized retention recommendations</li>
+                <li>Customer lifetime value integration</li>
+                <li>Automated report generation for sales teams</li>
+              </ul>
+              
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Sahil Shaikh</strong> <span>All Rights Reserved</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Highlight active project in navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const projectSections = document.querySelectorAll('.portfolio-details-section');
+      const navLinks = document.querySelectorAll('.project-nav a');
+      
+      // Scroll to project if hash exists
+      if(window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if(target) {
+          setTimeout(() => {
+            window.scrollTo({
+              top: target.offsetTop - 100,
+              behavior: 'smooth'
+            });
+            updateActiveNav(window.location.hash);
+          }, 300);
+        }
+      }
+      
+      // Intersection Observer for nav highlighting
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            updateActiveNav('#' + id);
+            history.replaceState(null, null, '#' + id);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      projectSections.forEach(section => {
+        observer.observe(section);
+      });
+      
+      function updateActiveNav(hash) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if(link.getAttribute('href') === hash) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
