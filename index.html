@@ -521,35 +521,97 @@
             </div>
           </div>
 
-          <div class="col-lg-7"><form action="https://formspree.io/f/xldjagje" method="POST" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
+          <div class="col-lg-7"><style>
+            .contact-form {
+              max-width: 700px;
+              margin: auto;
+              padding: 20px;
+              background: #f7f7f7;
+              border-radius: 10px;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
           
-              <div class="col-md-6">
-                <label for="name-field" class="pb-2">Your Name</label>
-                <input type="text" name="name" id="name-field" required>
-              </div>
+            .contact-form label {
+              display: block;
+              margin-bottom: 5px;
+              font-weight: 600;
+            }
           
-              <div class="col-md-6">
-                <label for="email-field" class="pb-2">Your Email</label>
-                <input type="email" name="email" id="email-field" required>
-              </div>
+            .contact-form input,
+            .contact-form textarea {
+              width: 100%;
+              padding: 10px;
+              margin-bottom: 15px;
+              border-radius: 5px;
+              border: 1px solid #ccc;
+              font-size: 15px;
+            }
           
-              <div class="col-md-12">
-                <label for="subject-field" class="pb-2">Subject</label>
-                <input type="text" name="subject" id="subject-field" required>
-              </div>
+            .contact-form .form-buttons {
+              display: flex;
+              justify-content: center;
+              gap: 15px;
+            }
           
-              <div class="col-md-12">
-                <label for="message-field" class="pb-2">Message</label>
-                <textarea name="message" id="message-field" rows="10" required></textarea>
-              </div>
+            .contact-form button {
+              padding: 10px 25px;
+              font-size: 16px;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;
+              background-color: #007bff;
+              color: white;
+              transition: background-color 0.3s ease;
+            }
           
-              <div class="col-md-12 text-center">
+            .contact-form button:hover {
+              background-color: #0056b3;
+            }
+          
+            .contact-form button.clear-btn {
+              background-color: #6c757d;
+            }
+          
+            .contact-form button.clear-btn:hover {
+              background-color: #5a6268;
+            }
+          </style>
+          
+          <div class="contact-form" data-aos="fade-up" data-aos-delay="200">
+            <form id="contactForm" action="https://formspree.io/f/xldjagje" method="POST">
+              <label for="name-field">Your Name</label>
+              <input type="text" name="name" id="name-field" required>
+          
+              <label for="email-field">Your Email</label>
+              <input type="email" name="email" id="email-field" required>
+          
+              <label for="subject-field">Subject</label>
+              <input type="text" name="subject" id="subject-field" required>
+          
+              <label for="message-field">Message</label>
+              <textarea name="message" id="message-field" rows="6" required></textarea>
+          
+              <div class="form-buttons">
                 <button type="submit">Send Message</button>
+                <button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
               </div>
+            </form>
+          </div>
           
-            </div>
-          </form>
+          <script>
+            // Clear form fields
+            function clearForm() {
+              document.getElementById("contactForm").reset();
+            }
+          
+            // Clear after successful submission (optional extra cleanup)
+            document.getElementById("contactForm").addEventListener("submit", function() {
+              setTimeout(() => {
+                document.getElementById("contactForm").reset();
+              }, 1000);
+            });
+          </script>
+          
           
           </div><!-- End Contact Form -->
 
