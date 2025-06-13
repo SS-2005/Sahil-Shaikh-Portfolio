@@ -1685,3 +1685,15 @@ body.dark-mode .testimonials .testimonial-item p {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
   transform: translateY(-3px);
 }
+
+/* Update */
+
+/* Hide nav menu by default on mobile */
+@media (max-width: 1199px) {
+  .navmenu {
+    display: none;
+  }
+  .navmenu.navmenu-open {
+    display: block;
+  }
+}
