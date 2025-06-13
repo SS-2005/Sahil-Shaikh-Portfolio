@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +33,17 @@
   <header id="header" class="header dark-background d-flex flex-column">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
+    <!-- Dark Mode Toggle - Repositioned to top-right -->
+    <div>
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+      <label for="darkModeToggle" class="toggle-label">
+        <i class="bi bi-moon"></i>
+        <i class="bi bi-sun"></i>
+        <span class="toggle-ball"></span>
+      </label>
+    </div>
+
     <div class="profile-img">
       <img src="assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
     </div>
@@ -40,6 +51,9 @@
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
       <h1 class="sitename">Sahil Shaikh</h1>
     </a>
+  </div>
+
+
 
     <div class="social-links text-center">
       <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
@@ -54,13 +68,14 @@
         <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Projects</a></li>
+        <li><a href="#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
+        <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Domains Explored</a></li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
 
   </header>
-
   <main class="main">
 
     <!-- Hero Section -->
@@ -70,7 +85,8 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Sahil Shaikh</h2>
-        <p>I'm <span class="typed" data-typed-items="AI Engineer, ML Developer, Data Scientist, Python Developer">AIML Engineer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        <!-- Fixed Typed Animation -->
+        <p>I'm <span class="typed" data-typed-items="AI Engineer, ML Developer, Data Scientist, Python Developer"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
 
     </section><!-- /Hero Section -->
@@ -113,7 +129,7 @@
               </div>
             </div>
             <p class="py-3">
-              Currently pursuing my Bachelor's degree with a specialization in Artificial Intelligence and Machine Learning, I'm passionate about developing intelligent systems that can learn and adapt. My projects span across various domains including Computer Vision,Deep Learning and predictive analytics. I believe in continuous learning and staying updated with the latest advancements in AI technology.
+              Currently in my third year pursuing a Bachelor's degree with a specialization in Artificial Intelligence and Machine Learning, I'm passionate about developing intelligent systems that can learn and adapt. My projects span across various domains including Computer Vision, Deep Learning and predictive analytics. I believe in continuous learning and staying updated with the latest advancements in AI technology.
             </p>
           </div>
         </div>
@@ -121,7 +137,7 @@
       </div>
 
     </section><!-- /About Section -->
-
+<hr style="height:18px">
     <!-- Stats Section -->
     <section id="stats" class="stats section">
 
@@ -132,7 +148,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="stats-item">
               <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="0.5" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="0.5" class="purecounter"></span>
               <p><strong>Projects</strong> <span>Completed</span></p>
             </div>
           </div><!-- End Stats Item -->
@@ -148,7 +164,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="stats-item">
               <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="0.5" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="0.5" class="purecounter"></span>
               <p><strong>Organizations</strong> <span>Collaborated With</span></p>
             </div>
           </div><!-- End Stats Item -->
@@ -166,22 +182,20 @@
       </div>
 
     </section><!-- /Stats Section -->
-
+<hr style="height:18px">
     <!-- Skills Section -->
-    <section id="services" class="skills section light-background">
+    <section id="services" class="skills section surface-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Technical Skills</h2>
-        <p>Proficient in a wide range of technologies and frameworks for AI/ML development and data science,Below are few of them</p>
+        <p>Proficient in a wide range of technologies and frameworks for AI/ML development and data science</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row skills-content skills-animation">
-
           <div class="col-lg-6">
-
             <div class="progress">
               <span class="skill"><span>Python</span> <i class="val">95%</i></span>
               <div class="progress-bar-wrap">
@@ -197,16 +211,14 @@
             </div><!-- End Skills Item -->
 
             <div class="progress">
-              <span class="skill"><span>Fine Tunning</span> <i class="val">70%</i></span>
+              <span class="skill"><span>Fine Tuning</span> <i class="val">70%</i></span>
               <div class="progress-bar-wrap">
                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
-
           </div>
 
           <div class="col-lg-6">
-
             <div class="progress">
               <span class="skill"><span>C-Programming</span> <i class="val">90%</i></span>
               <div class="progress-bar-wrap">
@@ -227,15 +239,112 @@
                 <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
-
           </div>
+        </div>
 
+        <!-- View More Skills Button -->
+        <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="200">
+          <button id="viewMoreSkills" class="btn btn-primary">View More Skills</button>
+        </div>
+
+        <!-- Skills Modal -->
+        <div id="skillsModal" class="skills-modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Full Technical Skills</h3>
+            <div class="skills-grid">
+              <div class="skill-category">
+                <h4>Programming Languages</h4>
+                <ul>
+                  <li>Python 3</li>
+                  <li>Java</li>
+                  <li>C Programming</li>
+                  <li>HTML5</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>SQL</li>
+                </ul>
+              </div>
+              
+              <div class="skill-category">
+                <h4>Frameworks</h4>
+                <ul>
+                  <li>OpenCV</li>
+                  <li>TensorFlow</li>
+                  <li>PyTorch</li>
+                </ul>
+              </div>
+              
+              <div class="skill-category">
+                <h4>Developer Tools</h4>
+                <ul>
+                  <li>VS Code</li>
+                  <li>Google Colab</li>
+                  <li>GitHub</li>
+                  <li>JDK</li>
+                  <li>Eclipse</li>
+                  <li>Jupyter Notebook</li>
+                  <li>Anaconda</li>
+                  <li>IDLE</li>
+                  <li>Turbo C</li>
+                  <li>Hugging Face</li>
+                </ul>
+              </div>
+              
+              <div class="skill-category">
+                <h4>Data Science & ML</h4>
+                <ul>
+                  <li>Deep Learning</li>
+                  <li>Generative AI</li>
+                  <li>Predictive Modeling</li>
+                  <li>Pattern Recognition</li>
+                  <li>AI</li>
+                  <li>EDA</li>
+                  <li>Data Visualization</li>
+                  <li>Data Preprocessing & Cleaning</li>
+                  <li>Model Evaluation and Analysis</li>
+                  <li>Supervised/Unsupervised Learning</li>
+                  <li>Transfer Learning</li>
+                  <li>Neural Networks</li>
+                  <li>Hyperparameter Optimization</li>
+                  <li>Fine-Tuning Models</li>
+                  <li>Feature Extraction</li>
+                  <li>Ensemble Learning</li>
+                  <li>Random Forest</li>
+                  <li>Image Recognition & Classification</li>
+                </ul>
+              </div>
+              
+              <div class="skill-category">
+                <h4>Libraries & Tools</h4>
+                <ul>
+                  <li>Scikit-Learn</li>
+                  <li>Numpy</li>
+                  <li>Pandas</li>
+                  <li>Matplotlib</li>
+                  <li>Seaborn</li>
+                </ul>
+              </div>
+              
+              <div class="skill-category">
+                <h4>Other Skills</h4>
+                <ul>
+                  <li>OOPS (Object-Oriented Programming)</li>
+                  <li>ChatGPT</li>
+                  <li>Deepseek</li>
+                  <li>Perplexity AI</li>
+                  <li>DSA</li>
+                  <li>Algorithms</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
 
     </section><!-- /Skills Section -->
-
+<hr style="height:18px">
     <!-- Resume Section -->
     <section id="resume" class="resume section">
 
@@ -243,7 +352,7 @@
       <div class="container section-title" data-aos="fade-up">
         <h2>Resume</h2>
         <p>My professional journey and academic background in Artificial Intelligence and Machine Learning.</p>
-        <p> <a href="https://drive.google.com/file/d/1YIHDYGUFRjYDhm9G1Y8VNVfCi7mM19Xt/view?usp=drive_link">Resume Link</a></p>
+        <p> <a href="https://drive.google.com/file/d/1ahJNxdN1mUWGvK-8_ZroQ9PdTCaKiHLw/view?usp=sharing">Resume Link</a></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -266,12 +375,59 @@
               <p><em>Maharashtra State Board - Nowrosjee Wadia College, Pune</em></p>
               <p>Studied Physics, Chemistry, Mathematics, Biology with Information Technology</p>
             </div>
+            
+            <!-- Volunteering moved under Education -->
+            <h3 class="resume-title mt-4">Volunteering</h3>
+            
+            <div class="resume-item">
+              <h4>Member of CSI</h4>
+              <h5>Aug 2023 - Present</h5>
+              <p><em>Computer Society of India</em></p>
+              <ul>
+                <li>Participated in workshops and training sessions on emerging technologies</li>
+                <li>Collaborated on technical projects with peer members</li>
+                <li>Organized coding competitions and tech events</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Part of College Coding Club</h4>
+              <h5>Aug 2023 - Present</h5>
+              <p><em>Saraswati College of Engineering</em></p>
+              <ul>
+                <li>Mentored junior students in programming and AI concepts</li>
+                <li>Organized hackathons and coding workshops</li>
+                <li>Developed club website and resource portal</li>
+              </ul>
+            </div>
 
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="resume-title">Professional Experience</h3>
             
+            <div class="resume-item">
+              <h4>AI Engineer</h4>
+              <h5>May 2025 - Present</h5>
+              <p><em>Jmedia Corporation</em></p>
+              <ul>
+                <li>Developing advanced AI models for media applications</li>
+                <li>Implementing machine learning solutions for content analysis</li>
+                <li>Optimizing algorithms for real-time processing</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Intern</h4>
+              <h5>May 2025 - Present</h5>
+              <p><em>CollegeTips.in</em></p>
+              <ul>
+                <li>Research intern focusing on educational AI applications</li>
+                <li>Developing content recommendation systems</li>
+                <li>Implementing NLP for student feedback analysis</li>
+              </ul>
+            </div>
+
             <div class="resume-item">
               <h4>AI/ML Intern</h4>
               <h5>Dec 2024 - Jan 2025</h5>
@@ -283,16 +439,6 @@
               </ul>
             </div>
 
-            <div class="resume-item">
-              <h4>Member Of CSI</h4>
-              <h5>Aug 2023 - Present</h5>
-              <p><em>Computer Society of India</em></p>
-              <ul>
-                <li>Participated in workshops and training sessions on emerging technologies</li>
-                <li>Collaborated on technical projects with peer members</li>
-              </ul>
-            </div>
-
           </div>
 
         </div>
@@ -300,118 +446,169 @@
       </div>
 
     </section><!-- /Resume Section -->
-
-<!-- In your index.html, update the portfolio section like this: -->
-<section id="portfolio" class="portfolio section light-background">
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Projects</h2>
-    <p>Explore my work in artificial intelligence, machine learning, and data science applications.</p>
-    <p>Below are few of my projects.</p>
-  </div>
-
-  <div class="container">
-    <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-      <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-        <li data-filter="*" class="filter-active">All</li>
-        <li data-filter=".filter-dl">Deep Learning</li>
-        <li data-filter=".filter-ai">AI</li>
-        <li data-filter=".filter-ml">Machine Learning</li>
-      </ul>
-
-      <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-        <!-- Project 1 - Dog Breed Identification -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-dl">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/dog-vision.jpg" class="img-fluid" alt="Dog Breed Identification">
-            <div class="portfolio-info">
-              <h4>Dog Breed Identification</h4>
-              <p>Deep Learning model identifying 120 dog breeds</p>
-              <a href="portfolio-details.html#project1" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 - Object Placement -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ai">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/object-placement.jpg" class="img-fluid" alt="Object Placement System">
-            <div class="portfolio-info">
-              <h4>Object Placement System</h4>
-              <p>AI system for automatic object placement</p>
-              <a href="portfolio-details.html#project2" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 - Sentiment Analysis -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/sentiment-analysis.jpg" class="img-fluid" alt="Sentiment Analysis">
-            <div class="portfolio-info">
-              <h4>Movie Review Sentiment</h4>
-              <p>ML model classifying movie reviews</p>
-              <a href="portfolio-details.html#project3" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4 - Heart Disease Predictor -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/heart-disease.jpg" class="img-fluid" alt="Heart Disease Predictor">
-            <div class="portfolio-info">
-              <h4>Heart Disease Predictor</h4>
-              <p>ML model predicting heart disease risk</p>
-              <a href="portfolio-details.html#project4" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5 - Face Recognition -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-dl">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/face-recognition.jpg" class="img-fluid" alt="Face Recognition">
-            <div class="portfolio-info">
-              <h4>Face Recognition</h4>
-              <p>OpenCV based face detection system</p>
-              <a href="portfolio-details.html#project5" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6 - Customer Churn -->
-        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-          <div class="portfolio-content h-100">
-            <img src="assets/img/portfolio/customer-analytics.jpg" class="img-fluid" alt="Customer Churn Analysis">
-            <div class="portfolio-info">
-              <h4>Customer Churn Analysis</h4>
-              <p>Predictive model for customer retention</p>
-              <a href="portfolio-details.html#project6" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
+<hr style="height:18px">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section surface-background">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Projects</h2>
+        <p>Explore my work in artificial intelligence, machine learning, and data science applications.</p>
       </div>
 
-    </section><!-- /Portfolio Section -->
+      <div class="container">
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-dl">Deep Learning</li>
+            <li data-filter=".filter-ai">AI</li>
+            <li data-filter=".filter-ml">Machine Learning</li>
+            <li data-filter=".filter-web">Web Development</li> <!-- Added Web Development Category -->
+          </ul>
 
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            <!-- Project 1 - Dog Breed Identification -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-dl">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/dog-vision.jpg" class="img-fluid" alt="Dog Breed Identification">
+                <div class="portfolio-info">
+                  <h4>Dog Breed Identification</h4>
+                  <p>Deep Learning model identifying 120 dog breeds</p>
+                  <a href="portfolio-details.html#project1" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 - Object Placement -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ai">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/object-placement.jpg" class="img-fluid" alt="Object Placement System">
+                <div class="portfolio-info">
+                  <h4>Object Placement System</h4>
+                  <p>AI system for automatic object placement</p>
+                  <a href="portfolio-details.html#project2" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 - Sentiment Analysis -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/sentiment-analysis.jpg" class="img-fluid" alt="Sentiment Analysis">
+                <div class="portfolio-info">
+                  <h4>Movie Review Sentiment</h4>
+                  <p>ML model classifying movie reviews</p>
+                  <a href="portfolio-details.html#project3" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 - Heart Disease Predictor -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/heart-disease.jpg" class="img-fluid" alt="Heart Disease Predictor">
+                <div class="portfolio-info">
+                  <h4>Heart Disease Predictor</h4>
+                  <p>ML model predicting heart disease risk</p>
+                  <a href="portfolio-details.html#project4" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5 - Face Recognition -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-dl">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/face-recognition.jpg" class="img-fluid" alt="Face Recognition">
+                <div class="portfolio-info">
+                  <h4>Face Recognition</h4>
+                  <p>OpenCV based face detection system</p>
+                  <a href="portfolio-details.html#project5" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 6 - Customer Churn -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/customer-analytics.jpg" class="img-fluid" alt="Customer Churn Analysis">
+                <div class="portfolio-info">
+                  <h4>Customer Churn Analysis</h4>
+                  <p>Predictive model for customer retention</p>
+                  <a href="portfolio-details.html#project6" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 7 - Pet Friendly City (Moved to Web Development) -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/PW.jpg" class="img-fluid" alt="Pet Friendly City">
+                <div class="portfolio-info">
+                  <h4>Pet Friendly City</h4>
+                  <p>Web platform for pet-friendly urban planning</p>
+                  <a href="portfolio-details.html#project7" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+<hr style="height:18px">
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Achievements</h2>
+        <p>My notable accomplishments and certifications</p>
+      </div>
+      
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="achievement-item">
+              <img src="assets/img/achievements/RC.jpg" alt="1st Ranker" class="img-fluid">
+              <div class="achievement-overlay">
+                <h3>1st Ranker</h3>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="achievement-item">
+              <img src="assets/img/achievements/DL_JavaScript.jpg" alt="Deep Learning Certificate" class="img-fluid">
+              <div class="achievement-overlay">
+                <h3>Deep Learning Certificate</h3>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="achievement-item">
+              <img src="assets/img/achievements/PC.jpg" alt="AI for Students" class="img-fluid">
+              <div class="achievement-overlay">
+                <h3>AI for Students</h3>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6">
+            <div class="achievement-item">
+              <img src="assets/img/achievements/GC.jpg" alt="Generative AI Certificate" class="img-fluid">
+              <div class="achievement-overlay">
+                <h3>Generative AI Certificate</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<hr style="height:18px">
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
+    <section id="testimonials" class="testimonials section surface-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Certifications and Cources</h2>
+        <h2>Certifications and Courses</h2>
         <p>Professional courses completed to enhance my technical skills</p>
       </div><!-- End Section Title -->
 
@@ -444,7 +641,6 @@
             }
           </script>
           <div class="swiper-wrapper">
-
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <div class="certification-icon">
@@ -470,18 +666,14 @@
                 </p>
               </div>
             </div><!-- End certification item -->
-
           </div>
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
-
     </section><!-- /Testimonials Section -->
-
+<hr style="height:18px">
     <!-- Contact Section -->
     <section id="contact" class="contact section">
-
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
@@ -489,11 +681,8 @@
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
-
           <div class="col-lg-5">
-
             <div class="info-wrap">
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
@@ -523,116 +712,53 @@
             </div>
           </div>
 
-          <div class="col-lg-7"><style>
-            .contact-form {
-              max-width: 700px;
-              margin: auto;
-              padding: 20px;
-              background: #f7f7f7;
-              border-radius: 10px;
-              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            }
-          
-            .contact-form label {
-              display: block;
-              margin-bottom: 5px;
-              font-weight: 600;
-            }
-          
-            .contact-form input,
-            .contact-form textarea {
-              width: 100%;
-              padding: 10px;
-              margin-bottom: 15px;
-              border-radius: 5px;
-              border: 1px solid #ccc;
-              font-size: 15px;
-            }
-          
-            .contact-form .form-buttons {
-              display: flex;
-              justify-content: center;
-              gap: 15px;
-            }
-          
-            .contact-form button {
-              padding: 10px 25px;
-              font-size: 16px;
-              border: none;
-              border-radius: 8px;
-              cursor: pointer;
-              background-color: #007bff;
-              color: white;
-              transition: background-color 0.3s ease;
-            }
-          
-            .contact-form button:hover {
-              background-color: #0056b3;
-            }
-          
-            .contact-form button.clear-btn {
-              background-color: #6c757d;
-            }
-          
-            .contact-form button.clear-btn:hover {
-              background-color: #5a6268;
-            }
-          </style>
-          
-          <div class="contact-form" data-aos="fade-up" data-aos-delay="200">
-            <form id="contactForm" action="https://formspree.io/f/xldjagje" method="POST">
-              <label for="name-field">Your Name</label>
-              <input type="text" name="name" id="name-field" required>
-          
-              <label for="email-field">Your Email</label>
-              <input type="email" name="email" id="email-field" required>
-          
-              <label for="subject-field">Subject</label>
-              <input type="text" name="subject" id="subject-field" required>
-          
-              <label for="message-field">Message</label>
-              <textarea name="message" id="message-field" rows="6" required></textarea>
-          
-              <div class="form-buttons">
-                <button type="submit">Send Message</button>
-                <button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
-              </div>
-            </form>
-          </div>
-          
-          <script>
-            // Clear form fields
-            function clearForm() {
-              document.getElementById("contactForm").reset();
-            }
-          
-            // Clear after successful submission (optional extra cleanup)
-            document.getElementById("contactForm").addEventListener("submit", function() {
-              setTimeout(() => {
-                document.getElementById("contactForm").reset();
-              }, 1000);
-            });
-          </script>
-          
-          
+          <div class="col-lg-7">
+            <div class="contact-form" data-aos="fade-up" data-aos-delay="200">
+              <form id="contactForm" action="https://formspree.io/f/xldjagje" method="POST">
+                <div class="form-group mb-4">
+                  <label for="name-field" class="form-label">Your Name</label>
+                  <input type="text" name="name" id="name-field" class="form-control" required>
+                </div>
+                
+                <div class="form-group mb-4">
+                  <label for="email-field" class="form-label">Your Email</label>
+                  <input type="email" name="email" id="email-field" class="form-control" required>
+                </div>
+                
+                <div class="form-group mb-4">
+                  <label for="subject-field" class="form-label">Subject</label>
+                  <input type="text" name="subject" id="subject-field" class="form-control" required>
+                </div>
+                
+                <div class="form-group mb-4">
+                  <label for="message-field" class="form-label">Message</label>
+                  <textarea name="message" id="message-field" rows="6" class="form-control" required></textarea>
+                </div>
+                
+                <div class="form-buttons">
+                  <button type="submit" class="btn btn-primary">Send Message</button>
+                  <button type="button" class="btn btn-outline-secondary" onclick="clearForm()">Clear</button>
+                </div>
+              </form>
+            </div>
           </div><!-- End Contact Form -->
-
         </div>
-
       </div>
-
     </section><!-- /Contact Section -->
-
   </main>
 
-  <footer id="footer" class="footer position-relative light-background">
-
+    <footer id="footer" class="footer position-relative">
     <div class="container">
-      <div class="copyright text-center ">
+      <div class="quote mt-2 text-center">
+        <p>"Turning data into insights, and insights into impact."</p>
+      <div class="credits mt-2">
+        Made with ❤️ using HTML, CSS, and JavaScript
+      </div>
+      <div class="copyright text-center">
         <p>© <span>Copyright</span> <strong class="px-1 sitename">Sahil Shaikh</strong> <span>All Rights Reserved</span></p>
       </div>
+      </div>
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
@@ -656,5 +782,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

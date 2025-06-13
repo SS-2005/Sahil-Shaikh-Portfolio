@@ -1,10 +1,172 @@
-/**
-* Template Name: iPortfolio
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
+
+(function() {
+  "use strict";
+
+  /**
+   * Header toggle
+   */
+  const headerToggleBtn = document.querySelector('.header-toggle');
+
+  function headerToggle() {
+    document.querySelector('#header').classList.toggle('header-show');
+    headerToggleBtn.classList.toggle('bi-list');
+    headerToggleBtn.classList.toggle('bi-x');
+  }
+  headerToggleBtn.addEventListener('click', headerToggle);
+
+  /**
+   * Dark Mode Toggle
+   */
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  if (darkModeToggle) {
+    // Check for saved theme
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      darkModeToggle.checked = true;
+    }
+    
+    // Listen for toggle
+    darkModeToggle.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+
+  /**
+   * Skills Modal
+   */
+  const viewMoreBtn = document.getElementById('viewMoreSkills');
+  const skillsModal = document.getElementById('skillsModal');
+  const closeModal = document.querySelector('.close');
+  
+  if (viewMoreBtn && skillsModal) {
+    viewMoreBtn.addEventListener('click', function() {
+      skillsModal.style.display = 'block';
+    });
+    
+    closeModal.addEventListener('click', function() {
+      skillsModal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', function(event) {
+      if (event.target === skillsModal) {
+        skillsModal.style.display = 'none';
+      }
+    });
+  }
+
+  /**
+   * Preloader
+   */
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove();
+    });
+  }
+
+  /**
+   * Scroll top button
+   */
+  let scrollTop = document.querySelector('.scroll-top');
+
+  function toggleScrollTop() {
+    if (scrollTop) {
+      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    }
+  }
+  scrollTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('load', toggleScrollTop);
+  document.addEventListener('scroll', toggleScrollTop);
+
+  /**
+   * Animation on scroll function and init
+   */
+  function aosInit() {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
+  window.addEventListener('load', aosInit);
+
+  /**
+   * Init typed.js
+   */
+  const selectTyped = document.querySelector('.typed');
+  if (selectTyped) {
+    let typed_strings = selectTyped.getAttribute('data-typed-items');
+    typed_strings = typed_strings.split(',');
+    new Typed('.typed', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
+    });
+  }
+
+  /**
+   * Initiate Pure Counter
+   */
+  new PureCounter();
+
+  /**
+   * Animate the skills items on reveal
+   */
+  let skillsAnimation = document.querySelectorAll('.skills-animation');
+  skillsAnimation.forEach((item) => {
+    new Waypoint({
+      element: item,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = item.querySelectorAll('.progress .progress-bar');
+        progress.forEach(el => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%';
+        });
+      }
+    });
+  });
+
+  /**
+   * Contact form clear function
+   */
+  window.clearForm = function() {
+    document.getElementById("contactForm").reset();
+  }
+
+  // Smooth scroll to project when coming from index.html
+  document.addEventListener('DOMContentLoaded', function() {
+    if(window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if(target) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: target.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }, 300);
+      }
+    }
+  });
+})();
+
 
 (function() {
   "use strict";
@@ -90,22 +252,6 @@
   window.addEventListener('load', aosInit);
 
   /**
-   * Init typed.js
-   */
-  const selectTyped = document.querySelector('.typed');
-  if (selectTyped) {
-    let typed_strings = selectTyped.getAttribute('data-typed-items');
-    typed_strings = typed_strings.split(',');
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
-
-  /**
    * Initiate Pure Counter
    */
   new PureCounter();
@@ -134,6 +280,8 @@
     selector: '.glightbox'
   });
 
+
+  
   /**
    * Init isotope layout and filters
    */
@@ -240,5 +388,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }, 300);
     }
+  }
+});
+
+// Add to existing JS
+// Save dark mode preference
+darkModeToggle.addEventListener('change', function() {
+  if (this.checked) {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Load saved preference
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    document.getElementById('darkModeToggle').checked = true;
   }
 });
