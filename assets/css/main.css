@@ -1757,6 +1757,75 @@ section,
 }
 
 
+/*mobile style*/
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 9999;
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    font-size: 22px;
+    transition: background-color 0.3s;
+  }
+
+  .mobile-nav-toggle:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+  }
+
+  .navmenu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--nav-mobile-background-color);
+    padding: 80px 20px 20px;
+    transition: all 0.5s ease;
+    z-index: 9998;
+    overflow-y: auto;
+  }
+
+  .navmenu.navmenu-show {
+    left: 0;
+  }
+
+  .navmenu ul {
+    padding: 0;
+  }
+
+  .navmenu a {
+    padding: 12px 15px;
+    font-size: 16px;
+  }
+
+  .header {
+    width: 100%;
+    position: static;
+    padding: 0;
+  }
+
+  .header~main,
+  .header~#footer {
+    margin-left: 0;
+  }
+}
+
 /* Update */
 
 /* Hide nav menu by default on mobile */
@@ -1767,4 +1836,52 @@ section,
   .navmenu.navmenu-open {
     display: block;
   }
+}
+
+/* Page Transitions */
+.page-transition {
+  position: relative;
+}
+
+.page-transition::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.page-transition.active::before {
+  opacity: 1;
+}
+
+/* Loading Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(20, 157, 221, 0.2);
+  border-top: 4px solid var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 10000;
+  display: none;
+}
+
+.page-transition .loading-spinner {
+  display: block;
 }
