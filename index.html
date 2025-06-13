@@ -26,6 +26,95 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Mobile Navigation CSS Fix -->
+  <style>
+    /* Mobile Navigation Styles */
+    @media (max-width: 1199.98px) {
+      .header {
+        position: fixed;
+        left: -280px;
+        width: 280px;
+        transition: all 0.5s ease;
+        z-index: 9999;
+      }
+      
+      .header.active {
+        left: 0;
+      }
+      
+      .main {
+        margin-left: 0;
+      }
+      
+      .mobile-nav-toggle {
+        display: flex !important;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+        font-size: 28px;
+        cursor: pointer;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.5);
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .mobile-nav-close {
+        display: block !important;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        color: #fff;
+        z-index: 9999;
+      }
+      
+      .dark-mode-toggle {
+        top: 80px;
+        right: 20px;
+      }
+    }
+    
+    /* Default styles for larger screens */
+    .mobile-nav-toggle, .mobile-nav-close {
+      display: none;
+    }
+    
+    /* Preloader fix */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #preloader:after {
+      content: "";
+      width: 60px;
+      height: 60px;
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #5a67d8;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 
 <body class="index-page">
