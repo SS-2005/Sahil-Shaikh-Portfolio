@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,10 +32,7 @@
 <body class="index-page">
 
   <header id="header" class="header dark-background d-flex flex-column">
-    <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="bi bi-list"></i>
-    </button>
-
+    <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <!-- Dark Mode Toggle - Repositioned to top-right -->
     <div>
@@ -65,8 +63,7 @@
       <a href="https://www.linkedin.com/in/sahilshaikh110205/" class="linkedin"><i class="bi bi-linkedin"></i></a>
     </div>
 
-    <div class="collapse navbar-collapse" id="navmenu">
-      <nav class="navmenu">
+    <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
@@ -77,8 +74,7 @@
         <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Domains Explored</a></li>
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
-      </nav>
-    </div>
+    </nav>
 
   </header>
   <main class="main">
@@ -785,6 +781,16 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.querySelector('.header-toggle');
+        const navMenu = document.querySelector('.navmenu');
+
+        toggle.addEventListener('click', function () {
+        navMenu.classList.toggle('navmenu-open');
+        });
+    });
+    </script>
 
 </body>
 </html>
