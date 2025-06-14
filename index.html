@@ -31,12 +31,31 @@
 <body class="index-page">
 
 <header id="header" class="header dark-background d-flex flex-column">
-  <!-- Dark Mode Toggle - Repositioned to top-right -->
+    <!-- Profile section - visible only on desktop -->
+  <div class="d-none d-xl-block">
+    <div class="profile-img">
+      <img src="assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
+    </div>
+    
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Sahil Shaikh</h1>
+    </a>
+
+  <div class="social-links text-center">
+    <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
+    <a href="https://medium.com/@SS-2005" class="medium"><i class="bi bi-medium"></i></a>
+    <a href="https://leetcode.com/u/SS-2005/" class="code"><i class="bi bi-code-square"></i></a>
+    <a href="https://www.linkedin.com/in/sahilshaikh110205/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+  </div>
+
+
+
+  <!-- Mobile Navigation Toggle -->
   <div class="mobile-nav-toggle d-xl-none" onclick="toggleMobileNav()">
     <i class="bi bi-list"></i>
   </div>
 
-  <div>
+    <div>
     <div class="dark-mode-toggle">
       <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
       <label for="darkModeToggle" class="toggle-label">
@@ -46,23 +65,27 @@
       </label>
     </div>
 
-    <div class="profile-img">
-      <img src="assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
-    </div>
+  <!-- Navigation Menu (will contain profile on mobile) -->
+  <nav id="navmenu" class="navmenu">
+    <!-- Profile section - visible only in mobile nav -->
+    <div class="navmenu-profile d-xl-none">
+      <div class="profile-img">
+        <img src="assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
+      </div>
+      
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <h1 class="sitename">Sahil Shaikh</h1>
+      </a>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <h1 class="sitename">Sahil Shaikh</h1>
-    </a>
-  </div>
-
-  <div class="social-links text-center">
+      <div class="social-links text-center">
     <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
     <a href="https://medium.com/@SS-2005" class="medium"><i class="bi bi-medium"></i></a>
     <a href="https://leetcode.com/u/SS-2005/" class="code"><i class="bi bi-code-square"></i></a>
     <a href="https://www.linkedin.com/in/sahilshaikh110205/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-  </div>
+      </div>
+    </div>
 
-  <nav id="navmenu" class="navmenu">
+    <!-- Navigation Links -->
     <ul>
       <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
       <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
@@ -74,6 +97,7 @@
       <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
     </ul>
   </nav>
+  </div>
 </header>
   <main class="main">
 
