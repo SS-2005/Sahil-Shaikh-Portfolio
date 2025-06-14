@@ -4,17 +4,26 @@
   /**
    * Mobile Navigation Toggle
    */
-  function toggleMobileNav() {
-    const navmenu = document.getElementById('navmenu');
-    const toggleBtn = document.querySelector('.mobile-nav-toggle i');
-    
-    navmenu.classList.toggle('navmenu-show');
-    toggleBtn.classList.toggle('bi-list');
-    toggleBtn.classList.toggle('bi-x');
-    
-    // Toggle body overflow when nav is open
-    document.body.style.overflow = navmenu.classList.contains('navmenu-show') ? 'hidden' : '';
+function toggleMobileNav() {
+  const navmenu = document.getElementById('navmenu');
+  const toggleBtn = document.querySelector('.mobile-nav-toggle i');
+  
+  navmenu.classList.toggle('navmenu-show');
+  
+  // Change icon
+  if (toggleBtn.classList.contains('bi-list')) {
+    toggleBtn.classList.remove('bi-list');
+    toggleBtn.classList.add('bi-x');
+  } else {
+    toggleBtn.classList.remove('bi-x');
+    toggleBtn.classList.add('bi-list');
   }
+  
+  // Toggle body overflow
+  document.body.style.overflow = navmenu.classList.contains('navmenu-show') 
+    ? 'hidden' 
+    : '';
+}
 
   // Add click event to mobile nav toggle
   document.querySelector('.mobile-nav-toggle')?.addEventListener('click', toggleMobileNav);
