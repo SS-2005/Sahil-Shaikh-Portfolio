@@ -2,49 +2,41 @@
   "use strict";
 
   /**
-   * Mobile Navigation Toggle
+   * Header toggle
    */
-  function toggleMobileNav() {
-    const navmenu = document.getElementById('navmenu');
-    const toggleBtn = document.querySelector('.mobile-nav-toggle i');
-    
-    navmenu.classList.toggle('navmenu-show');
-    
-    // Change icon
-    if (toggleBtn.classList.contains('bi-list')) {
-      toggleBtn.classList.remove('bi-list');
-      toggleBtn.classList.add('bi-x');
-    } else {
-      toggleBtn.classList.remove('bi-x');
-      toggleBtn.classList.add('bi-list');
-    }
-  
-  // Toggle body overflow
-  document.body.style.overflow = navmenu.classList.contains('navmenu-show') 
-    ? 'hidden' 
-    : '';
-}
+  const headerToggleBtn = document.querySelector('.header-toggle');
 
-  // Add click event to mobile nav toggle
-  document.querySelector('.mobile-nav-toggle')?.addEventListener('click', toggleMobileNav);
+  function headerToggle() {
+    document.querySelector('#header').classList.toggle('header-show');
+    headerToggleBtn.classList.toggle('bi-list');
+    headerToggleBtn.classList.toggle('bi-x');
+  }
+  headerToggleBtn.addEventListener('click', headerToggle);
 
   /**
-   * Close mobile navigation when clicking on a nav link
+   * Hide mobile nav on same-page/hash links
    */
-  document.querySelectorAll('#navmenu a').forEach(navLink => {
-    navLink.addEventListener('click', (e) => {
-      // For external links or links to other pages
-      if (navLink.href && !navLink.hash) {
-        // Show loading state
-        document.body.classList.add('page-transition');
-        return; // Allow default navigation
-      }
-
-      if (window.innerWidth <= 1199) {
-        toggleMobileNav();
+  document.querySelectorAll('#navmenu a').forEach(navmenu => {
+    navmenu.addEventListener('click', () => {
+      if (document.querySelector('.header-show')) {
+        headerToggle();
       }
     });
+
   });
+
+  /**
+   * Toggle mobile nav dropdowns
+   */
+  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+    navmenu.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentNode.classList.toggle('active');
+      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      e.stopImmediatePropagation();
+    });
+  });
+
 
   /**
    * Page Transition Handling
