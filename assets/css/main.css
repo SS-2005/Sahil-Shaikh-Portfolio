@@ -1758,7 +1758,55 @@ section,
 
 
 /*mobile style*/
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 9999;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.navmenu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: var(--nav-mobile-background-color);
+  padding: 80px 20px 20px;
+  transition: all 0.5s ease;
+  z-index: 9998;
+  overflow-y: auto;
+}
+
+.navmenu.navmenu-show {
+  left: 0;
+}
+
+.navmenu-profile {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Hide desktop profile on mobile */
+.d-xl-none .header > .profile-img,
+.d-xl-none .header > .logo,
+.d-xl-none .header > .social-links {
+  display: none;
+}
 /* Mobile Navigation */
 .mobile-nav-toggle {
   display: none;
