@@ -26,6 +26,153 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+
+
+    /* Add these styles to your existing CSS */
+    .achievement-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+    
+    .achievement-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .fullscreen-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease, background 0.3s ease;
+        z-index: 10;
+    }
+    
+    .achievement-item:hover .fullscreen-btn {
+        opacity: 1;
+    }
+    
+    .fullscreen-btn:hover {
+        background: rgba(138, 43, 226, 0.8);
+    }
+    
+    .achievement-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .achievement-modal.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .modal-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        text-align: center;
+    }
+    
+    .modal-content img {
+        max-width: 100%;
+        max-height: 80vh;
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        width: 35px;
+        height: 35px;
+        background: #8a2be2;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: white;
+        font-size: 1.2rem;
+        transition: background 0.3s ease;
+    }
+    
+    .close-btn:hover {
+        background: #6a1bb9;
+    }
+
+        .download-btn {
+            display: block;
+            width: 250px;
+            margin: 2rem auto;
+            padding: 0.8rem;
+            text-align: center;
+            background: rgb(22, 106, 231);
+            color: rgb(0, 0, 0);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+        }
+        
+        .download-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(157, 78, 221, 0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .resume-section:nth-child(2) { animation-delay: 0.2s; }
+        .resume-section:nth-child(3) { animation-delay: 0.4s; }
+        .resume-section:nth-child(4) { animation-delay: 0.6s; }
+        .resume-section:nth-child(5) { animation-delay: 0.8s; }
+    </style>
 </head>
 
 <body class="index-page">
@@ -352,9 +499,7 @@
       <div class="container section-title" data-aos="fade-up">
         <h2>Resume</h2>
         <p>My professional journey and academic background in Artificial Intelligence and Machine Learning.</p>
-        <p> <a href="https://drive.google.com/file/d/1ahJNxdN1mUWGvK-8_ZroQ9PdTCaKiHLw/view?usp=sharing">Resume Link</a></p>
-      </div><!-- End Section Title -->
-
+<br><br>
       <div class="container">
 
         <div class="row">
@@ -429,8 +574,12 @@
           </div>
 
         </div>
+        <a href="assets/Resume/SS-Resume.pdf" download class="download-btn">
+            <i class="fas fa-download"></i> Download Resume
+        </a>
 
       </div>
+        </div><!-- End Section Title -->
 
     </section><!-- /Resume Section -->
 <hr style="height:18px">
@@ -542,53 +691,77 @@
       </div>
     </section>
 <hr style="height:18px">
-    <!-- Achievements Section -->
-    <section id="achievements" class="achievements section">
-      <div class="container section-title" data-aos="fade-up">
+
+<!-- ======= Achievements Section ======= -->
+<section id="achievements" class="achievements section">
+    <div class="container section-title" data-aos="fade-up">
         <h2>Achievements</h2>
         <p>My notable accomplishments and certifications</p>
-      </div>
-      
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    </div>
+    
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-4">
-          <div class="col-lg-3 col-md-6">
-            <div class="achievement-item">
-              <img src="assets/img/achievements/RC.jpg" alt="1st Ranker" class="img-fluid">
-              <div class="achievement-overlay">
-                <h3>1st Ranker</h3>
-              </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="achievement-item">
+                    <img src="assets/img/achievements/RC.jpg" alt="1st Ranker" class="img-fluid">
+                    <div class="achievement-overlay">
+                        <h3>1st Ranker</h3>
+                    </div>
+                    <div class="fullscreen-btn">
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </div>
+                </div>
             </div>
-          </div>
-          
-          <div class="col-lg-3 col-md-6">
-            <div class="achievement-item">
-              <img src="assets/img/achievements/DL_JavaScript.jpg" alt="Deep Learning Certificate" class="img-fluid">
-              <div class="achievement-overlay">
-                <h3>Deep Learning Certificate</h3>
-              </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="achievement-item">
+                    <img src="assets/img/achievements/DL_JavaScript.jpg" alt="Deep Learning Certificate" class="img-fluid">
+                    <div class="achievement-overlay">
+                        <h3>Deep Learning Certificate</h3>
+                    </div>
+                    <div class="fullscreen-btn">
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </div>
+                </div>
             </div>
-          </div>
-          
-          <div class="col-lg-3 col-md-6">
-            <div class="achievement-item">
-              <img src="assets/img/achievements/PC.jpg" alt="AI for Students" class="img-fluid">
-              <div class="achievement-overlay">
-                <h3>AI for Students</h3>
-              </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="achievement-item">
+                    <img src="assets/img/achievements/PC.jpg" alt="AI for Students" class="img-fluid">
+                    <div class="achievement-overlay">
+                        <h3>AI for Students</h3>
+                    </div>
+                    <div class="fullscreen-btn">
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </div>
+                </div>
             </div>
-          </div>
-          
-          <div class="col-lg-3 col-md-6">
-            <div class="achievement-item">
-              <img src="assets/img/achievements/GC.jpg" alt="Generative AI Certificate" class="img-fluid">
-              <div class="achievement-overlay">
-                <h3>Generative AI Certificate</h3>
-              </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="achievement-item">
+                    <img src="assets/img/achievements/GC.jpg" alt="Generative AI Certificate" class="img-fluid">
+                    <div class="achievement-overlay">
+                        <h3>Generative AI Certificate</h3>
+                    </div>
+                    <div class="fullscreen-btn">
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
+    
+    <!-- Fullscreen Modal -->
+    <div class="achievement-modal">
+        <div class="modal-content">
+            <img src="" alt="Achievement Fullscreen">
+            <div class="close-btn">
+                <i class="bi bi-x-lg"></i>
+            </div>
+        </div>
+    </div>
+</section><!-- End Achievements Section -->
+
 <hr style="height:18px">
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section surface-background">
@@ -767,6 +940,51 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    // Add this script before the closing </body> tag
+    document.addEventListener('DOMContentLoaded', function() {
+        const achievementItems = document.querySelectorAll('.achievement-item');
+        const modal = document.querySelector('.achievement-modal');
+        const modalImg = modal.querySelector('img');
+        const closeBtn = modal.querySelector('.close-btn');
+        
+        // Open modal when fullscreen button is clicked
+        achievementItems.forEach(item => {
+            const fullscreenBtn = item.querySelector('.fullscreen-btn');
+            const img = item.querySelector('img');
+            
+            fullscreenBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close modal when close button is clicked
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Close modal with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
