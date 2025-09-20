@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Student Performance Predictor - Sahil Shaikh Portfolio</title>
+  <meta content="Detailed view of Student Performance Predictor project" name="description">
+  <meta content="Educational ML, Machine Learning, Python, Scikit-learn, XGBoost" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+  
+  <style>
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .live-demo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .live-demo-btn:hover {
+      background-color: #218838;
+      color: white;
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      background: rgba(20, 157, 221, 0.1);
+      color: #149ddd;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin: 3px;
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+
+<body class="project-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+      <label for="darkModeToggle" class="toggle-label">
+        <i class="bi bi-moon"></i>
+        <i class="bi bi-sun"></i>
+        <span class="toggle-ball"></span>
+      </label>
+    </div>
+
+    <div class="profile-img">
+      <img src="../assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="../index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Sahil Shaikh</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://medium.com/@SS-2005" class="medium"><i class="bi bi-medium"></i></a>
+      <a href="https://leetcode.com/u/SS-2005/" class="code"><i class="bi bi-code-square"></i></a>
+      <a href="https://www.linkedin.com/in/sahilshaikh110205/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="../index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="../index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="../index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="../projects.html"><i class="bi bi-images navicon"></i> Projects</a></li>
+        <li><a href="../index.html#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
+        <li><a href="../index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
+        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+        <li><a href="../index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Student Performance Predictor</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li class="current">Student Performance Predictor</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Project Details Section -->
+    <section id="project-details" class="project-details section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="portfolio-info">
+              <div class="project-header">
+                <h3>Project Information</h3>
+                <a href="https://github.com/SS-2005/Student_Performace" target="_blank" class="github-link">
+                  <i class="bi bi-github"></i> View on GitHub
+                </a>
+              </div>
+              <ul>
+                <li><strong>Category</strong>: Educational ML</li>
+                <li>
+                  <strong>Technologies</strong>: 
+                  <span class="tech-badge">Scikit-learn</span>
+                  <span class="tech-badge">XGBoost</span>
+                  <span class="tech-badge">SHAP</span>
+                </li>
+                <li><strong>Project Date</strong>: February 2024</li>
+                <li><strong>Dataset</strong>: Student Performance Dataset</li>
+                <li><strong>Accuracy</strong>: 84.7% (cross-validated)</li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Student Performance Predictor</h2>
+              <p>This project aims to develop a machine learning model to predict students' academic performance (final grades) based on various factors such as age, gender, study habits, attendance, and more.</p>
+              
+              <h3>Technical Implementation</h3>
+              <ul>
+                <li>Ensemble learning with feature importance analysis</li>
+                <li>Handling of imbalanced data with SMOTE</li>
+                <li>Model interpretation with SHAP values</li>
+                <li>Multiple algorithm comparison and selection</li>
+              </ul>
+              
+              <h3>Key Features</h3>
+              <ul>
+                <li>Early identification of at-risk students</li>
+                <li>Personalized intervention recommendations</li>
+                <li>Class-level performance analytics</li>
+                <li>Exportable reports for academic planning</li>
+                <li>Interactive dashboard for educators</li>
+              </ul>
+              
+              <!--
+              <div class="mt-4">
+                <a href="#" class="live-demo-btn">
+                  <i class="bi bi-play-circle"></i> View Live Demo
+                </a>
+              </div>
+            -->
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="../assets/img/portfolio/student-performance.jpg" alt="Performance Dashboard">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="quote mt-2 text-center">
+        <p>"Turning data into insights, and insights into impact."</p>
+        <div class="credits mt-2">
+          Made with ❤️ using HTML, CSS, and JavaScript
+        </div>
+        <div class="copyright text-center">
+          <p>© <span>Copyright</span> <strong class="px-1 sitename">Sahil Shaikh</strong> <span>All Rights
+              Reserved</span></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    // Initialize Swiper
+    document.addEventListener('DOMContentLoaded', function() {
+      new Swiper('.portfolio-details-slider', {
+        speed: 400,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        }
+      });
+      
+      // Dark mode toggle persistence
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        // Check for saved theme
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+          document.body.classList.add('dark-mode');
+          darkModeToggle.checked = true;
+        }
+        
+        // Listen for toggle
+        darkModeToggle.addEventListener('change', function() {
+          if (this.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
