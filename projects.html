@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>All Projects - Sahil Shaikh Portfolio</title>
+  <meta content="Complete list of Sahil Shaikh's AI/ML projects" name="description">
+  <meta content="AI, Machine Learning, Data Science, Python, Deep Learning" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  
+  <style>
+    .project-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .project-filters button {
+      padding: 8px 20px;
+      background: #f8f9fa;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .project-filters button:hover,
+    .project-filters button.active {
+      background: #149ddd;
+      color: white;
+    }
+    
+    .project-item {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background: var(--surface-color);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .project-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .project-item:hover .project-image img {
+      transform: scale(1.05);
+    }
+    
+    .project-info h3 {
+      margin-bottom: 10px;
+      color: var(--heading-color);
+    }
+    
+    .project-info p {
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+    
+    .project-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .project-btn {
+      padding: 8px 15px;
+      background: #149ddd;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .project-btn:hover {
+      background: #0d8ac7;
+    }
+    
+    .project-btn.outline {
+      background: transparent;
+      border: 1px solid #149ddd;
+      color: #149ddd;
+    }
+    
+    .project-btn.outline:hover {
+      background: #149ddd;
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="projects-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+      <label for="darkModeToggle" class="toggle-label">
+        <i class="bi bi-moon"></i>
+        <i class="bi bi-sun"></i>
+        <span class="toggle-ball"></span>
+      </label>
+    </div>
+
+    <div class="profile-img">
+      <img src="assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Sahil Shaikh</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://medium.com/@SS-2005" class="medium"><i class="bi bi-medium"></i></a>
+      <a href="https://leetcode.com/u/SS-2005/" class="code"><i class="bi bi-code-square"></i></a>
+      <a href="https://www.linkedin.com/in/sahilshaikh110205/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="projects.html" class="active"><i class="bi bi-images navicon"></i> Projects</a></li>
+        <li><a href="index.html#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
+        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
+        <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">All Projects</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Projects</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+      <div class="container" data-aos="fade-up">
+        
+        <div class="project-filters">
+          <button class="active" data-filter="*">All Projects</button>
+          <button data-filter=".filter-dl">Deep Learning</button>
+          <button data-filter=".filter-ai">AI</button>
+          <button data-filter=".filter-ml">Machine Learning</button>
+          <button data-filter=".filter-web">Web Development</button>
+          <button data-filter=".filter-cyber">Cyber-Security</button>
+        </div>
+
+        <div class="row" id="projects-container">
+          <!-- Deep Learning Projects -->
+          <div class="col-lg-4 col-md-6 project-item filter-dl">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/dog-vision.jpg" alt="Dog Breed Identification">
+              </div>
+              <div class="project-info">
+                <h3>Dog Breed Identification</h3>
+                <p>Deep Learning model identifying 120 dog breeds with high accuracy using transfer learning techniques.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/dog-breed-identification.html" class="project-btn">View Details</a>
+                <a href="https://dog-breed-identification-dbi-fr7x.onrender.com/" class="project-btn outline">View Live</a>
+          
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-dl">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/face-recognition.jpg" alt="Face Recognition">
+              </div>
+              <div class="project-info">
+                <h3>Face Recognition</h3>
+                <p>OpenCV based face detection and recognition system with database matching capabilities.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/face-recognition.html" class="project-btn">View Details</a>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-dl">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/handscript.jpg" alt="HandScript">
+              </div>
+              <div class="project-info">
+                <h3>HandScript</h3>
+                <p>Handwriting pattern recognition system that analyzes and replicates individual writing styles.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/handscript.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Projects -->
+          <div class="col-lg-4 col-md-6 project-item filter-ai">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/object-placement.jpg" alt="Object Placement System">
+              </div>
+              <div class="project-info">
+                <h3>Object Placement System</h3>
+                <p>AI system for automatic object placement with realistic positioning and lighting effects.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/object-placement.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ai">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/timetable.jpg" alt="Advanced Timetable Creator">
+              </div>
+              <div class="project-info">
+                <h3>Advanced Timetable Creator</h3>
+                <p>AI-powered academic scheduling system that generates conflict-free timetables.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/timetable-creator.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ai">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/chatbot.jpg" alt="ChatBot">
+              </div>
+              <div class="project-info">
+                <h3>ChatBot</h3>
+                <p>Digital navigation assistant providing helpful guidance and answering user queries.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/chatbot.html" class="project-btn">View Details</a>
+                <a href="https://ss-2005.github.io/ChatBot/" class="project-btn outline">View Live</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ai">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/ai-commentor.jpg" alt="AI Commentor">
+              </div>
+              <div class="project-info">
+                <h3>AI Commentor</h3>
+                <p>LinkedIn post engagement assistant that generates context-aware comments.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/ai-commentor.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Machine Learning Projects -->
+          <div class="col-lg-4 col-md-6 project-item filter-ml">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/sentiment-analysis.jpg" alt="Sentiment Analysis">
+              </div>
+              <div class="project-info">
+                <h3>Movie Review Sentiment</h3>
+                <p>ML model classifying movie reviews as positive or negative with high accuracy.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/sentiment-analysis.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ml">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/heart-disease.jpg" alt="Heart Disease Predictor">
+              </div>
+              <div class="project-info">
+                <h3>Heart Disease Predictor</h3>
+                <p>ML model predicting heart disease risk based on medical attributes and lifestyle factors.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/heart-disease-predictor.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ml">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/customer-analytics.jpg" alt="Customer Churn Analysis">
+              </div>
+              <div class="project-info">
+                <h3>Customer Churn Analysis</h3>
+                <p>Predictive model for customer retention and churn prevention.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/customer-churn.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ml">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/neuro-nutrigenomics.jpg" alt="Advanced NeuroNutrigenomics AI">
+              </div>
+              <div class="project-info">
+                <h3>NeuroWell Predict</h3>
+                <p>Mental health assessment using genetic data and predictive modeling.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/neurowell-predict.html" class="project-btn">View Details</a>
+                <a href="https://advanced-neuronutrigenomics-ai.onrender.com/" class="project-btn outline">View Live</a>
+          
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ml">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/future-price.jpg" alt="Future Price Detector">
+              </div>
+              <div class="project-info">
+                <h3>Future Price Detector</h3>
+                <p>Bulldozer price prediction model using regression techniques.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/future-price-detector.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ml">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/checkmax.jpg" alt="CheckMax">
+              </div>
+              <div class="project-info">
+                <h3>CheckMax</h3>
+                <p>Knowledge assessment platform that evaluates user understanding.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/checkmax.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ml">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/student-performance.jpg" alt="Student Performance Predictor">
+              </div>
+              <div class="project-info">
+                <h3>Student Performance Predictor</h3>
+                <p>Academic outcome forecasting based on various student factors.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/student-performance.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-ml">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/calories-burnt.jpg" alt="Calories Burnt Predictor">
+              </div>
+              <div class="project-info">
+                <h3>Calories Burnt Predictor</h3>
+                <p>Exercise-to-calorie regression model for fitness tracking.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/calories-predictor.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Development Projects -->
+          <div class="col-lg-4 col-md-6 project-item filter-web">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/PW.jpg" alt="Pet Friendly City">
+              </div>
+              <div class="project-info">
+                <h3>Pet Friendly City</h3>
+                <p>Web platform for pet-friendly urban planning and community engagement.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/pet-friendly-city.html" class="project-btn">View Details</a>
+                <a href="#" class="project-btn outline">View Live</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-web">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/gallery.jpg" alt="Gallery">
+              </div>
+              <div class="project-info">
+                <h3>Gallery</h3>
+                <p>Anime-inspired photo showcase with elegant animations and transitions.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/gallery.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cyber-Security Projects -->
+          <div class="col-lg-4 col-md-6 project-item filter-cyber">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/scrapewise.jpg" alt="ScrapeWise">
+              </div>
+              <div class="project-info">
+                <h3>ScrapeWise</h3>
+                <p>Web scraping security tool that extracts contacts and detects potential scams.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/scrapewise.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 project-item filter-cyber">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/med-img.jpg" alt="Med-Img">
+              </div>
+              <div class="project-info">
+                <h3>Med-Img</h3>
+                <p>Medical image identification system for security classification.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/med-img.html" class="project-btn">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="quote mt-2 text-center">
+        <p>"Turning data into insights, and insights into impact."</p>
+        <div class="credits mt-2">
+          Made with ❤️ using HTML, CSS, and JavaScript
+        </div>
+        <div class="copyright text-center">
+          <p>© <span>Copyright</span> <strong class="px-1 sitename">Sahil Shaikh</strong> <span>All Rights
+              Reserved</span></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // Project filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.project-filters button');
+      const projectItems = document.querySelectorAll('.project-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          const filterValue = this.getAttribute('data-filter');
+          
+          projectItems.forEach(item => {
+            if (filterValue === '*' || item.classList.contains(filterValue.substring(1))) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // Dark mode toggle persistence
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        // Check for saved theme
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+          document.body.classList.add('dark-mode');
+          darkModeToggle.checked = true;
+        }
+        
+        // Listen for toggle
+        darkModeToggle.addEventListener('change', function() {
+          if (this.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
