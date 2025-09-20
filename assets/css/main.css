@@ -208,6 +208,28 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(20, 157, 221, 0.8);
 }
 
+
+.show-more-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.show-more-btn:hover {
+    background-color: #0d8ac7;
+}
+
+.hidden-achievement {
+    display: none;
+}
+
+
+
 /*--------------------------------------------------------------
 # Skills Modal
 --------------------------------------------------------------*/
