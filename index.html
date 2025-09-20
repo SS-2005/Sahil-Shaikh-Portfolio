@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -305,6 +304,182 @@
             color: var(--accent-color);
             margin-bottom: 15px;
         }
+        
+        /* Achievement hover animation */
+        .achievement-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .achievement-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .achievement-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-item:hover .achievement-overlay {
+            transform: translateY(0);
+        }
+
+        .achievement-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .achievement-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .achievement-description {
+            font-size: 0.85rem;
+            margin: 5px 0 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .achievement-item:hover .achievement-description {
+            opacity: 1;
+        }
+
+        .show-more-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .show-more-btn:hover {
+            background-color: #0d8ac7;
+        }
+
+
+
+
+        
+    .project-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .project-filters button {
+      padding: 8px 20px;
+      background: #f8f9fa;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .project-filters button:hover,
+    .project-filters button.active {
+      background: #149ddd;
+      color: white;
+    }
+    
+    .project-item {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background: var(--surface-color);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .project-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .project-item:hover .project-image img {
+      transform: scale(1.05);
+    }
+    
+    .project-info h3 {
+      margin-bottom: 10px;
+      color: var(--heading-color);
+    }
+    
+    .project-info p {
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+    
+    .project-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .project-btn {
+      padding: 8px 15px;
+      background: #149ddd;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .project-btn:hover {
+      background: #0d8ac7;
+    }
+    
+    .project-btn.outline {
+      background: transparent;
+      border: 1px solid #149ddd;
+      color: #149ddd;
+    }
+    
+    .project-btn.outline:hover {
+      background: #149ddd;
+      color: white;
+    }
     </style>
 </head>
 
@@ -754,281 +929,80 @@
 
         </section><!-- /Resume Section -->
         <hr style="height:18px">
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio section surface-background">
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Projects</h2>
-                <p>Explore my work in artificial intelligence, machine learning, and data science applications.</p>
-            </div>
 
-            <div class="container">
-                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-dl">Deep Learning</li>
-                        <li data-filter=".filter-ai">AI</li>
-                        <li data-filter=".filter-ml">Machine Learning</li>
-                        <li data-filter=".filter-web">Web Development</li>
-                        <li data-filter=".filter-cyber">Cyber-Security</li>
-                    </ul>
+<!-- Portfolio Section -->
 
-                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-                        <!-- Project 1 - Dog Breed Identification -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-dl">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/dog-vision.jpg" class="img-fluid"
-                                    alt="Dog Breed Identification">
-                                <div class="portfolio-info">
-                                    <h4>Dog Breed Identification</h4>
-                                    <p>Deep Learning model identifying 120 dog breeds</p>
-                                    <a href="portfolio-details.html#project1" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
+<section id="portfolio" class="portfolio section surface-background">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Featured Projects</h2>
+    <p>Explore my work in artificial intelligence, machine learning, and data science applications.</p>
+  </div>
+<div>
+  <div class="container" data-aos="fade-up" data-aos-delay="200">
+    <div class="row">
+      <!-- Project 1 - Dog Breed Identification -->
+      <div class="col-lg-4 col-md-6 project-item filter-dl">
+        <div class="project-content">
+          <div class="project-image">
+            <img src="assets/img/portfolio/dog-vision.jpg" alt="Dog Breed Identification">
+          </div>
+          <div class="project-info">
+            <h3>Dog Breed Identification</h3>
+            <p>Deep Learning model identifying 120 dog breeds with high accuracy using transfer learning techniques.</p>
+          </div>
+          <div class="project-actions">
+            <a href="projects/dog-breed-identification.html" class="project-btn">View Details</a>
+            <a href="https://dog-breed-identification-dbi-fr7x.onrender.com/" class="project-btn outline">View Live</a>
+          </div>
 
-                        <!-- Project 2 - Object Placement -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ai">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/object-placement.jpg" class="img-fluid"
-                                    alt="Object Placement System">
-                                <div class="portfolio-info">
-                                    <h4>Object Placement System</h4>
-                                    <p>AI system for automatic object placement</p>
-                                    <a href="portfolio-details.html#project2" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
+        </div>
+      </div>
 
-                        <!-- Project 3 - Sentiment Analysis -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/sentiment-analysis.jpg" class="img-fluid"
-                                    alt="Sentiment Analysis">
-                                <div class="portfolio-info">
-                                    <h4>Movie Review Sentiment</h4>
-                                    <p>ML model classifying movie reviews</p>
-                                    <a href="portfolio-details.html#project3" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
+      <!-- Project 2 - NeuroWell Predict -->
+      <div class="col-lg-4 col-md-6 project-item filter-ml">
+        <div class="project-content">
+          <div class="project-image">
+            <img src="assets/img/portfolio/neuro-nutrigenomics.jpg" alt="NeuroWell Predict">
+          </div>
+          <div class="project-info">
+            <h3>NeuroWell Predict</h3>
+            <p>Mental health assessment using genetic data and predictive modeling.</p>
+          </div>
+          <div class="project-actions">
+            <a href="projects/neurowell-predict.html" class="project-btn">View Details</a>
+            <a href="https://advanced-neuronutrigenomics-ai.onrender.com/" class="project-btn outline">View Live</a>
+          </div>
+        </div>
+      </div>
 
-                        <!-- Project 4 - Heart Disease Predictor -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/heart-disease.jpg" class="img-fluid"
-                                    alt="Heart Disease Predictor">
-                                <div class="portfolio-info">
-                                    <h4>Heart Disease Predictor</h4>
-                                    <p>ML model predicting heart disease risk</p>
-                                    <a href="portfolio-details.html#project4" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
+      <!-- Project 3 - Pet Friendly City -->
+      <div class="col-lg-4 col-md-6 project-item filter-web">
+        <div class="project-content">
+          <div class="project-image">
+            <img src="assets/img/portfolio/PW.jpg" alt="Pet Friendly City">
+          </div>
+          <div class="project-info">
+            <h3>Pet Friendly City</h3>
+            <p>Web platform for pet-friendly urban planning and community engagement.</p>
+          </div>
+          <div class="project-actions">
+            <a href="projects/pet-friendly-city.html" class="project-btn">View Details</a>
+            <a href="https://ss-2005.github.io/Pet-Friendly-City/" class="project-btn outline">View Live</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                        <!-- Project 5 - Face Recognition -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-dl">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/face-recognition.jpg" class="img-fluid"
-                                    alt="Face Recognition">
-                                <div class="portfolio-info">
-                                    <h4>Face Recognition</h4>
-                                    <p>OpenCV based face detection system</p>
-                                    <a href="portfolio-details.html#project5" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
+    <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+      <a href="projects.html" class="btn btn-primary">View All Projects</a>
+    </div>
+  </div>
+</div>
+</section>
 
-                        <!-- Project 6 - Customer Churn -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/customer-analytics.jpg" class="img-fluid"
-                                    alt="Customer Churn Analysis">
-                                <div class="portfolio-info">
-                                    <h4>Customer Churn Analysis</h4>
-                                    <p>Predictive model for customer retention</p>
-                                    <a href="portfolio-details.html#project6" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Project 7 - Pet Friendly City (Moved to Web Development) -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/PW.jpg" class="img-fluid" alt="Pet Friendly City">
-                                <div class="portfolio-info">
-                                    <h4>Pet Friendly City</h4>
-                                    <p>Web platform for pet-friendly urban planning</p>
-                                    <a href="portfolio-details.html#project7" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- New Projects Start Here -->
-                        <!-- ML Category Projects -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/neuro-nutrigenomics.jpg" class="img-fluid"
-                                    alt="Advanced NeuroNutrigenomics AI">
-                                <div class="portfolio-info">
-                                    <h4>NeuroWell Predict</h4>
-                                    <p>Mental health assessment using genetic data</p>
-                                    <a href="portfolio-details.html#project8" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/future-price.jpg" class="img-fluid"
-                                    alt="Future Price Detector">
-                                <div class="portfolio-info">
-                                    <h4>Future Price Detector</h4>
-                                    <p>Bulldozer price prediction model</p>
-                                    <a href="portfolio-details.html#project16" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/checkmax.jpg" class="img-fluid" alt="CheckMax">
-                                <div class="portfolio-info">
-                                    <h4>CheckMax</h4>
-                                    <p>Knowledge assessment platform</p>
-                                    <a href="portfolio-details.html#project17" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/student-performance.jpg" class="img-fluid"
-                                    alt="Student Performance Predictor">
-                                <div class="portfolio-info">
-                                    <h4>Student Performance Predictor</h4>
-                                    <p>Academic outcome forecasting</p>
-                                    <a href="portfolio-details.html#project18" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/calories-burnt.jpg" class="img-fluid"
-                                    alt="Calories Burnt Predictor">
-                                <div class="portfolio-info">
-                                    <h4>Calories Burnt Predictor</h4>
-                                    <p>Exercise-to-calorie regression model</p>
-                                    <a href="portfolio-details.html#project19" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Web Development Category -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/gallery.jpg" class="img-fluid" alt="Gallery">
-                                <div class="portfolio-info">
-                                    <h4>Gallery</h4>
-                                    <p>Anime-inspired photo showcase</p>
-                                    <a href="portfolio-details.html#project9" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- AI Category Projects -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ai">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/timetable.jpg" class="img-fluid"
-                                    alt="Advanced Timetable Creator">
-                                <div class="portfolio-info">
-                                    <h4>Advanced Timetable Creator</h4>
-                                    <p>Conflict-free academic scheduling</p>
-                                    <a href="portfolio-details.html#project10" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ai">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/chatbot.jpg" class="img-fluid" alt="ChatBot">
-                                <div class="portfolio-info">
-                                    <h4>ChatBot</h4>
-                                    <p>Digital navigation assistant</p>
-                                    <a href="portfolio-details.html#project11" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ai">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/ai-commentor.jpg" class="img-fluid" alt="AI Commentor">
-                                <div class="portfolio-info">
-                                    <h4>AI Commentor</h4>
-                                    <p>LinkedIn post engagement assistant</p>
-                                    <a href="portfolio-details.html#project13" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Deep Learning Category -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-dl">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/handscript.jpg" class="img-fluid" alt="HandScript">
-                                <div class="portfolio-info">
-                                    <h4>HandScript</h4>
-                                    <p>Handwriting pattern recognition</p>
-                                    <a href="portfolio-details.html#project12" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Cyber-Security Category -->
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cyber">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/scrapewise.jpg" class="img-fluid" alt="ScrapeWise">
-                                <div class="portfolio-info">
-                                    <h4>ScrapeWise</h4>
-                                    <p>Web scraping security tool</p>
-                                    <a href="portfolio-details.html#project14" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cyber">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/med-img.jpg" class="img-fluid" alt="Med-Img">
-                                <div class="portfolio-info">
-                                    <h4>Med-Img</h4>
-                                    <p>Medical image identification</p>
-                                    <a href="portfolio-details.html#project15" title="More Details"
-                                        class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <hr style="height:18px">
 
         <!-- ======= Achievements Section ======= -->
@@ -1039,207 +1013,188 @@
             </div>
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
-                <div class="row gy-4">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/RC.jpg" alt="1st Ranker" class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>1st Ranker</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                <div class="row gy-4" id="achievements-container">
+                    <!-- First 3 achievements will be shown by default -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/RC.jpg" alt="1st Ranker" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">1st Ranker</h3>
+                            <p class="achievement-description">Achieved top rank in academic performance</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/DL_JavaScript.jpg" alt="Deep Learning Certificate"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Deep Learning Certificate</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/DL_JavaScript.jpg" alt="Deep Learning Certificate"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Deep Learning Certificate</h3>
+                            <p class="achievement-description">Completed advanced deep learning course</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/PC.jpg" alt="AI for Students" class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>AI for Students</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/PC.jpg" alt="AI for Students" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">AI for Students</h3>
+                            <p class="achievement-description">Completed AI fundamentals course</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Remaining achievements (hidden by default) -->
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/ai_ibm.jpg" alt="IBM AI Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">IBM AI Certificate</h3>
+                            <p class="achievement-description">IBM professional certification in AI</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/ai_ibm.jpg" alt="IBM AI Certificate" class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>IBM AI Certificate</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/aiagent_ibm.jpg" alt="IBM AI Agent Certificate"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">IBM AI Agent Certificate</h3>
+                            <p class="achievement-description">Specialized in AI agent development</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/aiagent_ibm.jpg" alt="IBM AI Agent Certificate"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>IBM AI Agent Certificate</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/ai_art.jpg" alt="Agentic AI: From Learner to Builder"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Agentic AI: From Learner to Builder</h3>
+                            <p class="achievement-description">Advanced agentic AI development</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-
-
-
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/ai_art.jpg" alt="Agentic AI: From Learner to Builder"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Agentic AI: From Learner to Builder</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/DL.jpg" alt="Deep Learning and Neural Networks"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Deep Learning and Neural Networks Certificate</h3>
+                            <p class="achievement-description">Comprehensive deep learning certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-
-
-
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/DL.jpg" alt="Deep Learning and Neural Networks"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Deep Learning and Neural Networks Certificate</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/Intro_AI.jpg" alt="Deep Learning and Neural Networks"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Artificial Intelligence Certification</h3>
+                            <p class="achievement-description">Fundamentals of AI certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/Intro_AI.jpg" alt="Deep Learning and Neural Networks"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Artificial Intelligence Certification</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/LLM_Basics.jpg" alt="Deep Learning and Neural Networks"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">LLM Certificate</h3>
+                            <p class="achievement-description">Large Language Models specialization</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/LLM_Basics.jpg" alt="Deep Learning and Neural Networks"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>LLM Certificate</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/MasterAI.jpg" alt="Deep Learning and Neural Networks"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Master AI Certificate</h3>
+                            <p class="achievement-description">Master-level AI certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/MasterAI.jpg" alt="Deep Learning and Neural Networks"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Master AI Certificate</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/MultiAgent.jpg" alt="Deep Learning and Neural Networks"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Multi Agent Certificate</h3>
+                            <p class="achievement-description">Multi-agent systems certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/MultiAgent.jpg" alt="Deep Learning and Neural Networks"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Multi Agent Certificate</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/PowerOfAIAgent.jpg" alt="Deep Learning and Neural Networks"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Agentic AI Certification</h3>
+                            <p class="achievement-description">Specialized agentic AI certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/PowerOfAIAgent.jpg" alt="Deep Learning and Neural Networks"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Agentic AI Certification</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/genai_nxtwave.jpg" alt="Completion Certificate"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Gen AI Completion Certificate</h3>
+                            <p class="achievement-description">Generative AI specialization</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/genai_nxtwave.jpg" alt="Completion Certificate"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Gen AI Completion Certificate</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/ml_intern.jpg" alt="Internship Completion Certificate"
+                            class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Completion Certificate ML Intern</h3>
+                            <p class="achievement-description">Machine Learning internship completion</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/ml_intern.jpg" alt="Internship Completion Certificate"
-                                class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Completion Certificate ML Intern</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
+                    <div class="col-lg-4 col-md-6 achievement-item hidden-achievement">
+                        <img src="assets/img/achievements/GC.jpg" alt="Generative AI Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Generative AI Certificate</h3>
+                            <p class="achievement-description">Generative models specialization</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="achievement-item">
-                            <img src="assets/img/achievements/GC.jpg" alt="Generative AI Certificate" class="img-fluid">
-                            <div class="achievement-overlay">
-                                <h3>Generative AI Certificate</h3>
-                            </div>
-                            <div class="fullscreen-btn">
-                                <i class="bi bi-arrows-fullscreen"></i>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button id="toggleAchievements" class="show-more-btn">Show All Achievements</button>
                 </div>
             </div>
 
@@ -1575,6 +1530,22 @@
                         const filterValue = this.getAttribute('data-filter');
                         iso.arrange({ filter: filterValue });
                     });
+                });
+            }
+            
+            // Toggle achievements visibility
+            const toggleButton = document.getElementById('toggleAchievements');
+            const hiddenAchievements = document.querySelectorAll('.hidden-achievement');
+            let showingAll = false;
+            
+            if (toggleButton) {
+                toggleButton.addEventListener('click', function() {
+                    hiddenAchievements.forEach(item => {
+                        item.classList.toggle('hidden-achievement');
+                    });
+                    
+                    showingAll = !showingAll;
+                    toggleButton.textContent = showingAll ? 'Show Less Achievements' : 'Show All Achievements';
                 });
             }
         });
