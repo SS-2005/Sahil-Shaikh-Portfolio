@@ -275,3 +275,58 @@
     });
   });
 })();
+
+// Fullscreen modal functionality for achievements
+function initFullscreenModal() {
+    const achievementItems = document.querySelectorAll('.achievement-item');
+    const modal = document.querySelector('.achievement-modal');
+    const modalImg = modal.querySelector('img');
+    const closeBtn = modal.querySelector('.close-btn');
+
+    // Open modal when fullscreen button is clicked
+    achievementItems.forEach(item => {
+        const fullscreenBtn = item.querySelector('.fullscreen-btn');
+        const img = item.querySelector('img');
+
+        if (fullscreenBtn) {
+            fullscreenBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+    });
+
+    // Close modal when close button is clicked
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close modal when clicking outside the image
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Close modal with ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initFullscreenModal();
+});
