@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>All Achievements - Sahil Shaikh Portfolio</title>
+    <meta content="Complete list of Sahil Shaikh's achievements and certifications" name="description">
+    <meta content="AI, Machine Learning, Data Science, Python, Deep Learning, Achievements, Certifications" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        /* Achievement Grid Styles */
+        .achievement-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 280px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .achievement-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievement-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .achievement-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-item:hover .achievement-overlay {
+            transform: translateY(0);
+        }
+
+        .achievement-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .achievement-description {
+            font-size: 0.85rem;
+            margin: 5px 0 0 0;
+        }
+
+        .fullscreen-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, background 0.3s ease;
+            z-index: 10;
+        }
+
+        .achievement-item:hover .fullscreen-btn {
+            opacity: 1;
+        }
+
+        .fullscreen-btn:hover {
+            background: rgba(138, 43, 226, 0.8);
+        }
+
+        .achievement-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .achievement-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+            animation: fadeInScale 0.5s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 35px;
+            height: 35px;
+            background: #8a2be2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            font-size: 1.2rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .close-btn:hover {
+            background: #6a1bb9;
+            transform: rotate(90deg);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(138, 43, 226, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+            }
+        }
+    </style>
+</head>
+
+<body class="achievements-page">
+
+    <header id="header" class="header dark-background d-flex flex-column">
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+
+        <!-- Dark Mode Toggle -->
+        <div class="dark-mode-toggle">
+            <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+            <label for="darkModeToggle" class="toggle-label">
+                <i class="bi bi-moon"></i>
+                <i class="bi bi-sun"></i>
+                <span class="toggle-ball"></span>
+            </label>
+        </div>
+
+        <div class="profile-img">
+            <img src="assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
+        </div>
+
+        <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+            <h1 class="sitename">Sahil Shaikh</h1>
+        </a>
+
+        <div class="social-links text-center">
+            <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
+            <a href="https://medium.com/@SS-2005" class="medium"><i class="bi bi-medium"></i></a>
+            <a href="https://leetcode.com/u/SS-2005/" class="code"><i class="bi bi-code-square"></i></a>
+            <a href="https://www.linkedin.com/in/sahilshaikh110205/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+                <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+                <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+                <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Projects</a></li>
+                <li><a href="achievements.html" class="active"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
+                <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
+                <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+                <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+
+        <!-- Page Title -->
+        <div class="page-title dark-background">
+            <div class="container d-lg-flex justify-content-between align-items-center">
+                <h1 class="mb-2 mb-lg-0">All Achievements</h1>
+                <nav class="breadcrumbs">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="current">Achievements</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="achievements section">
+            <div class="container section-title" data-aos="fade-up">
+                <h2>All Achievements & Certifications</h2>
+                <p>A comprehensive collection of my academic and professional accomplishments</p>
+            </div>
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <!-- Achievement 1 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/RC.jpg" alt="1st Ranker" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">1st Ranker</h3>
+                            <p class="achievement-description">Achieved top rank in academic performance</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 2 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/DL_JavaScript.jpg" alt="Deep Learning Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Deep Learning Certificate</h3>
+                            <p class="achievement-description">Completed advanced deep learning course</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 3 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/PC.jpg" alt="AI for Students" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">AI for Students</h3>
+                            <p class="achievement-description">Completed AI fundamentals course</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 4 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/ai_ibm.jpg" alt="IBM AI Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">IBM AI Certificate</h3>
+                            <p class="achievement-description">IBM professional certification in AI</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 5 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/aiagent_ibm.jpg" alt="IBM AI Agent Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">IBM AI Agent Certificate</h3>
+                            <p class="achievement-description">Specialized in AI agent development</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 6 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/ai_art.jpg" alt="Agentic AI: From Learner to Builder" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Agentic AI: From Learner to Builder</h3>
+                            <p class="achievement-description">Advanced agentic AI development</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 7 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/DL.jpg" alt="Deep Learning and Neural Networks" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Deep Learning and Neural Networks Certificate</h3>
+                            <p class="achievement-description">Comprehensive deep learning certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 8 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/Intro_AI.jpg" alt="Artificial Intelligence Certification" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Artificial Intelligence Certification</h3>
+                            <p class="achievement-description">Fundamentals of AI certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 9 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/LLM_Basics.jpg" alt="LLM Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">LLM Certificate</h3>
+                            <p class="achievement-description">Large Language Models specialization</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 10 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/MasterAI.jpg" alt="Master AI Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Master AI Certificate</h3>
+                            <p class="achievement-description">Master-level AI certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 11 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/MultiAgent.jpg" alt="Multi Agent Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Multi Agent Certificate</h3>
+                            <p class="achievement-description">Multi-agent systems certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 12 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/PowerOfAIAgent.jpg" alt="Agentic AI Certification" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Agentic AI Certification</h3>
+                            <p class="achievement-description">Specialized agentic AI certification</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 13 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/genai_nxtwave.jpg" alt="Gen AI Completion Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Gen AI Completion Certificate</h3>
+                            <p class="achievement-description">Generative AI specialization</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 14 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/ml_intern.jpg" alt="Internship Completion Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Completion Certificate ML Intern</h3>
+                            <p class="achievement-description">Machine Learning internship completion</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 15 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/OCI_AI.jpg" alt="OCI AI Completion Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Completion Certificate of OCI AI</h3>
+                            <p class="achievement-description">Completed Certificate of OCI AI</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+
+                    <!-- Achievement 16 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/OCI_GenAI.jpg" alt="OCI AI Completion Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Completion Certificate of OCI GenAI</h3>
+                            <p class="achievement-description">Completed Certificate of OCI GenAI</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+
+                    <!-- Achievement 17 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/OCI_DataScience.jpg" alt="OCI AI Completion Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Completion Certificate of OCI DS</h3>
+                            <p class="achievement-description">Completed Certificate of OCI DS</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+
+                    <!-- Achievement 18 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/GC.jpg" alt="Generative AI Certificate" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Generative AI Certificate</h3>
+                            <p class="achievement-description">Generative models specialization</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                    
+                </div>
+            </div>
+
+            <!-- Fullscreen Modal -->
+            <div class="achievement-modal">
+                <div class="modal-content">
+                    <img src="" alt="Achievement Fullscreen">
+                    <div class="close-btn">
+                        <i class="bi bi-x-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Achievements Section -->
+
+    </main>
+
+    <footer id="footer" class="footer position-relative">
+        <div class="container">
+            <div class="quote mt-2 text-center">
+                <p>"Turning data into insights, and insights into impact."</p>
+                <div class="credits mt-2">
+                    Made with ❤️ using HTML, CSS, and JavaScript
+                </div>
+                <div class="copyright text-center">
+                    <p>© <span>Copyright</span> <strong class="px-1 sitename">Sahil Shaikh</strong> <span>All Rights
+                            Reserved</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Fullscreen modal functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const achievementItems = document.querySelectorAll('.achievement-item');
+            const modal = document.querySelector('.achievement-modal');
+            const modalImg = modal.querySelector('img');
+            const closeBtn = modal.querySelector('.close-btn');
+
+            // Open modal when fullscreen button is clicked
+            achievementItems.forEach(item => {
+                const fullscreenBtn = item.querySelector('.fullscreen-btn');
+                const img = item.querySelector('img');
+
+                fullscreenBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close modal when close button is clicked
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close modal with ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
