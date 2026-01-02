@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Fake Review - Sahil Shaikh Portfolio</title>
+  <meta content="Detailed view of AI Commentor project" name="description">
+  <meta content="AI, NLP, Python, GPT-3.5, Deepseek API" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+  
+  <style>
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .live-demo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .live-demo-btn:hover {
+      background-color: #218838;
+      color: white;
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      background: rgba(20, 157, 221, 0.1);
+      color: #149ddd;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin: 3px;
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+
+<body class="project-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+      <label for="darkModeToggle" class="toggle-label">
+        <i class="bi bi-moon"></i>
+        <i class="bi bi-sun"></i>
+        <span class="toggle-ball"></span>
+      </label>
+    </div>
+
+    <div class="profile-img">
+      <img src="../assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="../index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Sahil Shaikh</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://medium.com/@SS-2005" class="medium"><i class="bi bi-medium"></i></a>
+      <a href="https://leetcode.com/u/SS-2005/" class="code"><i class="bi bi-code-square"></i></a>
+      <a href="https://www.linkedin.com/in/sahilshaikh110205/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="../index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="../index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="../index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="../projects.html"><i class="bi bi-images navicon"></i> Projects</a></li>
+        <li><a href="../index.html#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
+        <li><a href="../index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
+        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+        <li><a href="../index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Fake Review</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li class="current">Fake review detection</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Project Details Section -->
+    <section id="project-details" class="project-details section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="portfolio-info">
+              <div class="project-header">
+                <h3>Project Information</h3>
+                <a href="https://github.com/SS-2005/Fake_Review_Detector" target="_blank" class="github-link">
+                  <i class="bi bi-github"></i> View on GitHub
+                </a>
+              </div>
+              <ul>
+                <li><strong>Category</strong>: AI/ML</li>
+                <li>
+                  <strong>Technologies</strong>: 
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Supervised Approach</span>
+                  <span class="tech-badge">TensorFlow,PyTorch</span>
+                </li>
+                <li><strong>Project Year</strong>: 2025</li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Fake Review Detection</h2>
+              <p>A Fake comments detection Model that identify and analyze reviews, Trained on Kaggle Review Dataset</p>
+             <h3>Technical Approach</h3>
+<ul>
+  <li>Implements a supervised binary text classification pipeline using a custom PyTorch neural network.</li>
+  <li>Transforms raw review text into numerical feature vectors using CountVectorizer (bag-of-words representation).</li>
+  <li>Uses a shallow feed-forward neural network with ReLU activation for non-linear feature learning.</li>
+  <li>Trains the model using Binary Cross Entropy with Logits loss for stable binary classification.</li>
+  <li>Applies mini-batch gradient descent with the Adam optimizer for efficient convergence.</li>
+  <li>Splits data into training and testing sets to evaluate generalization performance.</li>
+  <li>Persists trained model weights and vectorizer artifacts for reuse during inference.</li>
+  <li>Performs inference by applying sigmoid activation to model outputs to compute prediction confidence.</li>
+</ul>
+
+<h3>Key Features</h3>
+<ul>
+  <li>Binary classification of textual reviews into genuine or fake categories.</li>
+  <li>Custom PyTorch Dataset and DataLoader for scalable batch processing.</li>
+  <li>Confidence score generation alongside predictions using probabilistic outputs.</li>
+  <li>Supports both single-review and batch-review inference.</li>
+  <li>Model and feature extractor persistence using Torch serialization and Pickle.</li>
+  <li>Fully local execution without reliance on external APIs.</li>
+  <li>Extensible architecture allowing replacement of CountVectorizer with TF-IDF or embeddings.</li>
+</ul>
+
+              
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="../assets/img/portfolio/FakeReview.jpg" alt="Fake Review Img">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="quote mt-2 text-center">
+        <p>"Turning data into insights, and insights into impact."</p>
+        <div class="credits mt-2">
+          Made with ❤️ using HTML, CSS, and JavaScript
+        </div>
+        <div class="copyright text-center">
+          <p>© <span>Copyright</span> <strong class="px-1 sitename">Sahil Shaikh</strong> <span>All Rights
+              Reserved</span></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    // Initialize Swiper
+    document.addEventListener('DOMContentLoaded', function() {
+      new Swiper('.portfolio-details-slider', {
+        speed: 400,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        }
+      });
+      
+      // Dark mode toggle persistence
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        // Check for saved theme
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+          document.body.classList.add('dark-mode');
+          darkModeToggle.checked = true;
+        }
+        
+        // Listen for toggle
+        darkModeToggle.addEventListener('change', function() {
+          if (this.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
