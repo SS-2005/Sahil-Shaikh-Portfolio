@@ -13,9 +13,9 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,113 +24,8 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- Main CSS File (black‑gold) -->
   <link href="assets/css/main.css" rel="stylesheet">
-  
-  <style>
-    .project-filters {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 40px;
-    }
-    
-    .project-filters button {
-      padding: 8px 20px;
-      background: #f8f9fa;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .project-filters button:hover,
-    .project-filters button.active {
-      background: #149ddd;
-      color: white;
-    }
-    
-    .project-item {
-      margin-bottom: 30px;
-      padding: 20px;
-      border-radius: 10px;
-      background: var(--surface-color);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    
-    .project-item:hover {
-      transform: translateY(-5px);
-    }
-    
-    .project-content {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    
-    .project-image {
-      height: 200px;
-      overflow: hidden;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
-    
-    .project-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    
-    .project-item:hover .project-image img {
-      transform: scale(1.05);
-    }
-    
-    .project-info h3 {
-      margin-bottom: 10px;
-      color: var(--heading-color);
-    }
-    
-    .project-info p {
-      color: color-mix(in srgb, var(--default-color), transparent 30%);
-      margin-bottom: 15px;
-      flex-grow: 1;
-    }
-    
-    .project-actions {
-      display: flex;
-      gap: 10px;
-    }
-    
-    .project-btn {
-      padding: 8px 15px;
-      background: #149ddd;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    
-    .project-btn:hover {
-      background: #0d8ac7;
-    }
-    
-    .project-btn.outline {
-      background: transparent;
-      border: 1px solid #149ddd;
-      color: #149ddd;
-    }
-    
-    .project-btn.outline:hover {
-      background: #149ddd;
-      color: white;
-    }
-  </style>
 </head>
 
 <body class="projects-page">
@@ -662,6 +557,7 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+  
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
@@ -670,17 +566,13 @@
     document.addEventListener('DOMContentLoaded', function() {
       const filterButtons = document.querySelectorAll('.project-filters button');
       const projectItems = document.querySelectorAll('.project-item');
-      
+
       filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-          // Remove active class from all buttons
           filterButtons.forEach(btn => btn.classList.remove('active'));
-          
-          // Add active class to clicked button
           this.classList.add('active');
-          
+
           const filterValue = this.getAttribute('data-filter');
-          
           projectItems.forEach(item => {
             if (filterValue === '*' || item.classList.contains(filterValue.substring(1))) {
               item.style.display = 'block';
@@ -690,18 +582,15 @@
           });
         });
       });
-      
+
       // Dark mode toggle persistence
       const darkModeToggle = document.getElementById('darkModeToggle');
       if (darkModeToggle) {
-        // Check for saved theme
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme === 'dark') {
           document.body.classList.add('dark-mode');
           darkModeToggle.checked = true;
         }
-        
-        // Listen for toggle
         darkModeToggle.addEventListener('change', function() {
           if (this.checked) {
             document.body.classList.add('dark-mode');

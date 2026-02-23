@@ -13,11 +13,9 @@
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,176 +24,8 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- Main CSS File -->
+    <!-- Main CSS File (black‑gold) -->
     <link href="assets/css/main.css" rel="stylesheet">
-    <style>
-        /* Achievement Grid Styles */
-        .achievement-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 280px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            margin-bottom: 30px;
-        }
-
-        .achievement-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .achievement-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .achievement-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .achievement-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.7);
-            padding: 15px;
-            color: white;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .achievement-item:hover .achievement-overlay {
-            transform: translateY(0);
-        }
-
-        .achievement-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .achievement-description {
-            font-size: 0.85rem;
-            margin: 5px 0 0 0;
-        }
-
-        .fullscreen-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease, background 0.3s ease;
-            z-index: 10;
-        }
-
-        .achievement-item:hover .fullscreen-btn {
-            opacity: 1;
-        }
-
-        .fullscreen-btn:hover {
-            background: rgba(138, 43, 226, 0.8);
-        }
-
-        .achievement-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .achievement-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            text-align: center;
-            transform: scale(0.8);
-            transition: transform 0.3s ease;
-        }
-
-        .achievement-modal.active .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-content img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 8px;
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
-            animation: fadeInScale 0.5s ease-out;
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .close-btn {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            width: 35px;
-            height: 35px;
-            background: #8a2be2;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: white;
-            font-size: 1.2rem;
-            transition: background 0.3s ease, transform 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .close-btn:hover {
-            background: #6a1bb9;
-            transform: rotate(90deg);
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(138, 43, 226, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
-            }
-        }
-    </style>
 </head>
 
 <body class="achievements-page">
@@ -588,16 +418,15 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
-    
+
+    <!-- Fullscreen Modal Script (if not in main.js) -->
     <script>
-        // Fullscreen modal functionality
         document.addEventListener('DOMContentLoaded', function () {
             const achievementItems = document.querySelectorAll('.achievement-item');
             const modal = document.querySelector('.achievement-modal');
             const modalImg = modal.querySelector('img');
             const closeBtn = modal.querySelector('.close-btn');
 
-            // Open modal when fullscreen button is clicked
             achievementItems.forEach(item => {
                 const fullscreenBtn = item.querySelector('.fullscreen-btn');
                 const img = item.querySelector('img');
@@ -611,13 +440,11 @@
                 });
             });
 
-            // Close modal when close button is clicked
             closeBtn.addEventListener('click', () => {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
 
-            // Close modal when clicking outside the image
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
                     modal.classList.remove('active');
@@ -625,7 +452,6 @@
                 }
             });
 
-            // Close modal with ESC key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && modal.classList.contains('active')) {
                     modal.classList.remove('active');
@@ -634,8 +460,5 @@
             });
         });
     </script>
-
 </body>
-
 </html>
-
