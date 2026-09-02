@@ -11,7 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Main CSS (includes intro styles) -->
-    <link href="assets/css/main.css" rel="stylesheet">
+    <script id="portfolio-theme-bootstrap">
+    (() => {
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+    })();
+  </script>
+  <link href="assets/css/main.css" rel="stylesheet">
 
     <!-- Typed.js for animation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
@@ -19,11 +27,7 @@
 <body style="margin:0; overflow:hidden;">
 
 <div id="introScreen" style="opacity:1; visibility:visible;">
-    <div class="intro-bg">
-        <div class="intro-orb io1"></div>
-        <div class="intro-orb io2"></div>
-        <div class="intro-orb io3"></div>
-    </div>
+    <div class="intro-bg" aria-hidden="true"></div>
     <div class="intro-inner">
         <div class="intro-video-wrap">
             <video id="introVideo" autoplay muted playsinline loop>
@@ -74,7 +78,7 @@
 
         function goToContent() {
             sessionStorage.setItem('introShown', 'true');
-            window.location.href = 'content.html';
+            window.location.replace('content.html');
         }
 
         skipBtn.addEventListener('click', goToContent);

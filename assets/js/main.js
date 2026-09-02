@@ -39,43 +39,41 @@
 
 
   /**
-   * Page Transition Handling
+   * Page Navigation
+   *
+   * Deliberately do not add an artificial page-exit delay here.
+   * Cross-page navigation should be immediate; AOS handles reveal
+   * motion after the destination page has loaded.
    */
-  document.querySelectorAll('a[href]:not([href^="#"]):not([href^="javascript:"])').forEach(link => {
-    link.addEventListener('click', function(e) {
-      // Don't intercept if it's a hash link or javascript link
-      if (this.hash || this.getAttribute('href').startsWith('javascript:')) return;
-      
-      e.preventDefault();
-      document.body.classList.add('page-transition');
-      
-      setTimeout(() => {
-        window.location.href = this.href;
-      }, 300);
-    });
-  });
 
   /**
-   * Dark Mode Toggle
+   * Theme
+   *
+   * Dark is the default. Light mode only appears after a user explicitly
+   * switches to it and that preference is saved for future visits.
    */
   const darkModeToggle = document.getElementById('darkModeToggle');
-  if (darkModeToggle) {
-    // Check for saved theme
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-      document.body.classList.add('dark-mode');
-      darkModeToggle.checked = true;
+  const savedTheme = localStorage.getItem('theme');
+  const initialTheme = savedTheme === 'light' ? 'light' : 'dark';
+
+  function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.classList.toggle('dark-mode', isDark);
+    document.body.classList.toggle('dark-mode', isDark);
+
+    if (darkModeToggle) {
+      darkModeToggle.checked = isDark;
     }
-    
-    // Listen for toggle
+  }
+
+  applyTheme(initialTheme);
+
+  if (darkModeToggle) {
     darkModeToggle.addEventListener('change', function() {
-      if (this.checked) {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-      }
+      const theme = this.checked ? 'dark' : 'light';
+      applyTheme(theme);
+      localStorage.setItem('theme', theme);
     });
   }
 
@@ -142,10 +140,12 @@
    */
   function aosInit() {
     AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
+      duration: 700,
+      easing: 'ease-out-cubic',
       once: true,
-      mirror: false
+      mirror: false,
+      offset: 80,
+      disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
     });
   }
   window.addEventListener('load', aosInit);
@@ -167,9 +167,31 @@
   }
 
   /**
-   * Initiate Pure Counter
+   * Initiate Pure Counter + reveal "+" only after the final value is reached.
    */
   new PureCounter();
+
+  function initCounterPlus() {
+    document.querySelectorAll('.counter-value').forEach(counter => {
+      const number = counter.querySelector('.purecounter');
+      const plus = counter.querySelector('.counter-plus');
+      if (!number || !plus) return;
+
+      const endValue = Number(number.getAttribute('data-purecounter-end'));
+      const revealPlus = () => {
+        const currentValue = Number(number.textContent.trim());
+        if (Number.isFinite(currentValue) && currentValue >= endValue) {
+          plus.classList.add('is-visible');
+          observer.disconnect();
+        }
+      };
+      const observer = new MutationObserver(revealPlus);
+      observer.observe(number, { childList: true, characterData: true, subtree: true });
+      revealPlus();
+    });
+  }
+
+  initCounterPlus();
 
   /**
    * Animate the skills items on reveal
@@ -220,9 +242,6 @@
         initIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
       }, false);
     });
   });
@@ -261,16 +280,23 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
-  // Smooth scroll to anchor links
+  // Smooth scroll to same-page anchor links.
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
+
+      const target = document.querySelector(href);
+      if (!target) return;
+
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 100,
-          behavior: 'smooth'
-        });
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      if (history.replaceState) {
+        history.replaceState(null, '', href);
       }
     });
   });

@@ -25,6 +25,14 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
+  <script id="portfolio-theme-bootstrap">
+    (() => {
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+    })();
+  </script>
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
@@ -60,13 +68,13 @@
 
     <nav id="navmenu" class="navmenu">
       <ul>
-        <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Projects</a></li>
-        <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
-        <li><a href="service-details.html" class="active"><i class="bi bi-gear navicon"></i> Domains</a></li>
-        <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li><a href="content.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="content.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="content.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="content.html#portfolio"><i class="bi bi-images navicon"></i> Projects</a></li>
+        <li><a href="content.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
+        <li><a href="service-details.html" class="active"><i class="bi bi-gear navicon"></i> Motivation/SOP</a></li>
+        <li><a href="content.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
 
@@ -77,91 +85,62 @@
     <!-- Page Title -->
     <div class="page-title dark-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">AI/ML Services</h1>
+        <h1 class="mb-2 mb-lg-0">Motivation / SOP</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li class="current">Services</li>
+            <li class="current">Motivation / SOP</li>
           </ol>
         </nav>
       </div>
     </div>
 
-    <!-- Service Details Section -->
+    <!-- Motivation / SOP Section -->
     <section id="service-details" class="service-details section">
 
       <div class="container">
 
-        <div class="row gy-4">
+        <div class="row gy-5">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4" data-aos="fade-right">
             <div class="services-list">
-              <a href="#machine-learning" class="active">Machine Learning</a>
-              <a href="#deep-learning">Deep Learning</a>
-              <a href="#computer-vision">Computer Vision</a>
-              <a href="#nlp">Natural Language Processing</a>
-              <a href="#data-analytics">Data Analytics</a>
+              <a href="#engineering-mindset" class="active">Engineering Mindset</a>
+              <a href="#about-me">About Me</a>
+              <a href="#what-i-am-looking-for">What I'm Looking For</a>
+              <a href="#why-me">Why Me?</a>
             </div>
 
-            <h4>Custom AI Solutions</h4>
-            <p>I provide end-to-end AI/ML solutions tailored to your specific business needs, from data collection to model development.</p>
-            <a href="index.html#contact" class="btn btn-primary">Contact Me</a>
-
+            <div class="domain-sidebar-note">
+              <a href="content.html#contact" class="btn btn-primary">Contact Me</a>
+            </div>
           </div>
-          
 
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/services/ai-services.jpg" alt="AI/ML Services" class="img-fluid services-img">
-            <h3 id="machine-learning">Machine Learning</h3>
-            <p>
-              Building predictive models that help businesses make data-driven decisions. My machine learning services include:
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Custom predictive modeling for business applications</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Feature engineering and model optimization</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>End-to-end ML pipeline development</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Performance monitoring and maintenance</span></li>
-            </ul>
+          <div class="col-lg-8" data-aos="fade-left">
 
-            <h3 id="deep-learning">Deep Learning</h3>
-            <p>
-              Implementing state-of-the-art deep learning architectures for complex problem solving:
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Transfer learning for specialized applications</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Model optimization for edge devices</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Generative AI model development</span></li>
-            </ul>
+            <article id="engineering-mindset" class="motivation-section">
+              <span class="eyebrow">Engineering Mindset</span>
+              <p>As an engineer i am always fascinated by the limitations of system i.e why a system fails, where its breaking point is and what actually makes it production ready and scalable. i enjoy digging into edge cases understanding where different components break and finding practical ways to make systems more reliable because i believe thats where the real engineering happens and matters.</p>
+            </article>
 
-            <h3 id="computer-vision">Computer Vision</h3>
-            <p>
-              Developing visual intelligence systems for automation and analysis:
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Object detection and recognition systems</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Image classification and segmentation</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Image analytics and processing</span></li>
-            </ul>
+            <article id="about-me" class="motivation-section">
+              <span class="eyebrow">About Me</span>
+              <p>Hii, myself sahil shaikh. Am currently pursuing my bachelors in CSE(AIML) with a cgpa of 9.5 ranking among the top students in my college, over the past few months i have worked on machine learning ,generative ai ,llm engineering, prompt engineering and backend development through internships and personal projects.alongside this i have completed oracle certifications in AI ML and generative AI along with IBM training programs and a complete AI/ML course</p>
+            </article>
 
-            <h3 id="nlp">Natural Language Processing</h3>
-            <p>
-              Creating intelligent systems that understand and generate human language:
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Text classification and sentiment analysis</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Document processing and information extraction</span></li>
-            </ul>
+            <article id="what-i-am-looking-for" class="motivation-section">
+              <span class="eyebrow">What I'm Looking For</span>
+              <p>i am currently looking for an opportunity where i can build things that people actually use and where i can continue learning from experienced engineers, where i can fail, learn and grow as an engineer.</p>
+            </article>
 
-            <h3 id="data-analytics">Data Analytics & Visualization</h3>
-            <p>
-              Transforming raw data into actionable business insights:
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Exploratory data analysis and reporting</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Interactive dashboard development</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Time series forecasting</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Anomaly detection systems</span></li>
-            </ul>
+            <article id="why-me" class="motivation-section">
+              <span class="eyebrow">Why Me?</span>
+              <p>I understand that, as a BE student, I may not be the most obvious fit on paper. But I genuinely believe I can learn fast, work hard, and give the opportunity more than the bare minimum. I would really appreciate a fair chance to prove that.</p>
+              <p>Thank you for taking the time to review my application.</p>
+              <div class="signature-block">
+                <p>Regards,<br>Sahil Shaikh</p>
+              </div>
+            </article>
+
           </div>
 
         </div>
@@ -206,42 +185,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <script>
-    // Highlight active service in navigation
-    document.addEventListener('DOMContentLoaded', function() {
-      const serviceLinks = document.querySelectorAll('.services-list a');
-      
-      serviceLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          
-          // Remove active class from all links
-          serviceLinks.forEach(l => l.classList.remove('active'));
-          // Add active class to clicked link
-          this.classList.add('active');
-          
-          // Scroll to target section
-          if(targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 100,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-      
-      // Set active link based on URL hash
-      if(window.location.hash) {
-        const activeLink = document.querySelector(`.services-list a[href="${window.location.hash}"]`);
-        if(activeLink) {
-          serviceLinks.forEach(l => l.classList.remove('active'));
-          activeLink.classList.add('active');
-        }
-      }
-    });
-  </script>
+
 
 </body>
 </html>

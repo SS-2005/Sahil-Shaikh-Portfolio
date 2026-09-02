@@ -25,6 +25,14 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
+  <script id="portfolio-theme-bootstrap">
+    (() => {
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+    })();
+  </script>
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 

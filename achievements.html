@@ -25,7 +25,15 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Main CSS File (black‑gold) -->
-    <link href="assets/css/main.css" rel="stylesheet">
+    <script id="portfolio-theme-bootstrap">
+    (() => {
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+    })();
+  </script>
+  <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
 <body class="achievements-page">
@@ -66,7 +74,7 @@
                 <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Projects</a></li>
                 <li><a href="achievements.html" class="active"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
                 <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
-                <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+                <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Motivation/SOP</a></li>
                 <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
             </ul>
         </nav>
@@ -379,6 +387,54 @@
                     </div>
 
                     <!-- Achievement 24 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/BTC.jpeg" alt="certificate img" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Banao Technologies</h3>
+                            <p class="achievement-description">Completion Certificate of Internship</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 25 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/ET.jpg" alt="certificate img" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Economic Times </h3>
+                            <p class="achievement-description">Semi-finalist Certificate of hackathon</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 26 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/DSCI.jpg" alt="certificate img" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">DSCI </h3>
+                            <p class="achievement-description">Coursework completion certificate</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 27 -->
+                    <div class="col-lg-4 col-md-6 achievement-item">
+                        <img src="assets/img/achievements/A.JPG" alt="certificate img" class="img-fluid">
+                        <div class="achievement-overlay">
+                            <h3 class="achievement-title">Adobe - Unstop </h3>
+                            <p class="achievement-description">Participation certificate</p>
+                        </div>
+                        <div class="fullscreen-btn">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 28 -->
                     <div class="col-lg-4 col-md-6 achievement-item">
                         <img src="assets/img/achievements/hackathon_participation.jpg" alt="streak 50" class="img-fluid">
                         <div class="achievement-overlay">

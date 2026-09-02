@@ -25,6 +25,14 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File (black‑gold) -->
+  <script id="portfolio-theme-bootstrap">
+    (() => {
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+    })();
+  </script>
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
@@ -66,7 +74,7 @@
         <li><a href="projects.html" class="active"><i class="bi bi-images navicon"></i> Projects</a></li>
         <li><a href="index.html#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
         <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
-        <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+        <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Motivation/SOP</a></li>
         <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>

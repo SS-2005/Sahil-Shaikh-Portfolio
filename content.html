@@ -25,7 +25,15 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Main CSS File (black‑gold) -->
-    <link href="assets/css/main.css" rel="stylesheet">
+    <script id="portfolio-theme-bootstrap">
+    (() => {
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+    })();
+  </script>
+  <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -68,7 +76,7 @@
                 <li><a href="content.html#portfolio"><i class="bi bi-images navicon"></i> Projects</a></li>
                 <li><a href="achievements.html"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
                 <li><a href="content.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
-                <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+                <li><a href="service-details.html"><i class="bi bi-gear navicon"></i> Motivation/SOP</a></li>
                 <li><a href="content.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
             </ul>
         </nav>
@@ -80,7 +88,7 @@
         <section id="hero" class="hero section dark-background">
             <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
             <div class="container" data-aos="fade-up" data-aos-delay="100">
-                <h2>Sahil Shaikh</h2>
+                <h2 color="black‑gold">Sahil Shaikh</h2>
                 <p>I'm <span class="typed" data-typed-items="AI Engineer, ML Developer, Data Scientist, Python Developer"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
             </div>
         </section><!-- /Hero Section -->
@@ -116,7 +124,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <p class="py-3">Currently in my Fourth year pursuing a Bachelor's degree with a specialization in Artificial Intelligence and Machine Learning, I'm passionate about developing intelligent systems that can learn and adapt. My projects span across various domains including Computer Vision, Deep Learning and predictive analytics. I believe in continuous learning and staying updated with the latest advancements in AI technology.</p>
+                        <p class="py-3">Currently in my Fouth year pursuing a Bachelor's degree with a specialization in Artificial Intelligence and Machine Learning, I'm passionate about developing intelligent systems that can learn and adapt. My projects span across various domains including Computer Vision, Deep Learning and predictive analytics. I believe in continuous learning and staying updated with the latest advancements in AI technology.</p>
                     </div>
                 </div>
             </div>
@@ -130,28 +138,40 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item">
                             <i class="bi bi-emoji-smile"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="0.5" class="purecounter"></span>
+                            <div class="counter-value">
+                                <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="0.8" class="purecounter"></span>
+                                <span class="counter-plus" aria-hidden="true">+</span>
+                            </div>
                             <p><strong>Projects</strong> <span>Completed</span></p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item">
                             <i class="bi bi-journal-richtext"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="0.5" class="purecounter"></span>
+                            <div class="counter-value">
+                                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="0.8" class="purecounter"></span>
+                                <span class="counter-plus" aria-hidden="true">+</span>
+                            </div>
                             <p><strong>familiar</strong> <span>Technologies</span></p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item">
                             <i class="bi bi-headset"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="0.5" class="purecounter"></span>
+                            <div class="counter-value">
+                                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="0.8" class="purecounter"></span>
+                                <span class="counter-plus" aria-hidden="true">+</span>
+                            </div>
                             <p><strong>Organizations</strong> <span>Collaborated With</span></p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="stats-item">
                             <i class="bi bi-people"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="0.5" class="purecounter"></span>
+                            <div class="counter-value">
+                                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="0.8" class="purecounter"></span>
+                                <span class="counter-plus" aria-hidden="true">+</span>
+                            </div>
                             <p><strong>Certifications</strong> <span>Completed</span></p>
                         </div>
                     </div>
@@ -321,7 +341,7 @@
                                 <h4>Bachelor of Engineering in Computer Science Engineering(AIML)</h4>
                                 <h5>2023 - 2027</h5>
                                 <p><em>University of Mumbai - Saraswati College of Engineering, Kharghar</em></p>
-                                <p>Specializing in Artificial Intelligence and Machine Learning with a current CGPA of 9.5</p>
+                                <p>Specializing in Artificial Intelligence and Machine Learning with a current CGPA of 9.50</p>
                             </div>
                             <div class="resume-item">
                                 <h4>HSC Science - 12th Standard</h4>
@@ -366,7 +386,7 @@
 
                             <div class="resume-item">
                                 <h4>AI-Developer (Intern)</h4>
-                                <h5>Jan 2026 - July</h5>
+                                <h5>Jan 2026 - Jul 2026</h5>
                                 <p><em>Banao Technologies (ATG)</em></p>
                                 <ul>
                                     <li>Deployed Real-Time Gen AI projects</li>
@@ -374,7 +394,7 @@
                                     <li>Collabrated with other tech teams</li>
                                 </ul>
                             </div>
-                            
+
                             <div class="resume-item">
                                 <h4>Intern</h4>
                                 <h5>May 2025</h5>
@@ -479,7 +499,7 @@
                     </div>
                 </div>
 
-                <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="240">
                     <a href="projects.html" class="btn btn-primary">View All Projects</a>
                 </div>
             </div>
@@ -620,20 +640,20 @@
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <div class="certification-icon"><i class="bi bi-patch-check"></i></div>
+                                <h3>Cyber-Security</h3>
+                                <h4>DSCI</h4>
+                                <p>A course-workshop to implement and understand Cyber-threats.</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <div class="certification-icon"><i class="bi bi-patch-check"></i></div>
                                 <h3>OCI Data Science (1Z0-1127-25)</h3>
                                 <h4>Oracle</h4>
                                 <p>A Full descriptive course of oracle to practically implement Data Science concepts and understand them.</p>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <div class="certification-icon"><i class="bi bi-patch-check"></i></div>
-                                <h3>Cyber-Security</h3>
-                                <h4>DCSI</h4>
-                                <p>A coursework workshop of cybersecurity to understand conseptual and practical knowledge.</p>
-                            </div>
-                        </div>
-                        
                         <div class="swiper-slide">
                             <div class="testimonial-item">
                                 <div class="certification-icon"><i class="bi bi-patch-check"></i></div>
@@ -666,14 +686,14 @@
                                     <p>Nerul, Navi Mumbai, Maharashtra, India</p>
                                 </div>
                             </div>
-                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="240">
                                 <i class="bi bi-telephone flex-shrink-0"></i>
                                 <div>
                                     <h3>Call Me</h3>
                                     <p>+91 9518755570</p>
                                 </div>
                             </div>
-                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="240">
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
                                     <h3>Email Me</h3>
