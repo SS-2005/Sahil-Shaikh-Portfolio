@@ -181,52 +181,57 @@ When asked, provide exact details and helpful links to his projects or resumes.`
     bindChatEvents(chatWin);
   }
 
-  // 2. Touch & Mouse Draggable Toggle Implementation
+  // 2. Touch & Mouse Draggable Toggle Implementation (Unified Pointer Events + Instant Tap Handler)
   function initDraggableToggle(btn, chatWin) {
-    let isDragging = false;
     let startX = 0, startY = 0;
     let initialLeft = 0, initialTop = 0;
+    let isDragging = false;
     let hasMoved = false;
+    let startTime = 0;
+    let lastToggleTime = 0;
 
-    function getCoords(e) {
-      if (e.touches && e.touches.length > 0) {
-        return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-      }
-      return { x: e.clientX, y: e.clientY };
+    function safeToggle() {
+      const now = Date.now();
+      // Debounce to prevent synthetic click from closing immediately after touch
+      if (now - lastToggleTime < 400) return;
+      lastToggleTime = now;
+      toggleChatWindow(chatWin);
     }
 
-    function onDragStart(e) {
-      if (e.type === 'mousedown' && e.button !== 0) return;
-      const coords = getCoords(e);
-      startX = coords.x;
-      startY = coords.y;
+    function onPointerDown(e) {
+      // Allow only primary mouse button or touch
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+      startX = e.clientX;
+      startY = e.clientY;
+      startTime = Date.now();
       hasMoved = false;
-      isDragging = true;
+      isDragging = false;
 
       const rect = btn.getBoundingClientRect();
       initialLeft = rect.left;
       initialTop = rect.top;
 
-      btn.classList.add('is-dragging');
+      try {
+        btn.setPointerCapture(e.pointerId);
+      } catch (_) {}
 
-      window.addEventListener('mousemove', onDragMove, { passive: false });
-      window.addEventListener('touchmove', onDragMove, { passive: false });
-      window.addEventListener('mouseup', onDragEnd);
-      window.addEventListener('touchend', onDragEnd);
+      btn.addEventListener('pointermove', onPointerMove);
+      btn.addEventListener('pointerup', onPointerUp);
+      btn.addEventListener('pointercancel', onPointerCancel);
     }
 
-    function onDragMove(e) {
-      if (!isDragging) return;
-      const coords = getCoords(e);
-      const dx = coords.x - startX;
-      const dy = coords.y - startY;
+    function onPointerMove(e) {
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      const dist = Math.hypot(dx, dy);
 
-      if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+      // Must move more than 12px to be recognized as an intentional drag
+      if (dist > 12) {
         hasMoved = true;
-        if (e.cancelable) e.preventDefault();
-      }
+        isDragging = true;
+        btn.classList.add('is-dragging');
 
-      if (hasMoved) {
         const winW = window.innerWidth;
         const winH = window.innerHeight;
         const btnW = btn.offsetWidth;
@@ -246,24 +251,45 @@ When asked, provide exact details and helpful links to his projects or resumes.`
       }
     }
 
-    function onDragEnd(e) {
-      if (!isDragging) return;
-      isDragging = false;
-      btn.classList.remove('is-dragging');
+    function onPointerUp(e) {
+      cleanListeners(e.pointerId);
 
-      window.removeEventListener('mousemove', onDragMove);
-      window.removeEventListener('touchmove', onDragMove);
-      window.removeEventListener('mouseup', onDragEnd);
-      window.removeEventListener('touchend', onDragEnd);
+      const duration = Date.now() - startTime;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      const dist = Math.hypot(dx, dy);
 
-      if (!hasMoved) {
-        // Pure click/tap: toggle chat window
-        toggleChatWindow(chatWin);
+      // Tap if movement is under 12px OR quick press (< 300ms) with slight tremor
+      if (!hasMoved || dist < 12 || (duration < 300 && dist < 20)) {
+        safeToggle();
       }
     }
 
-    btn.addEventListener('mousedown', onDragStart);
-    btn.addEventListener('touchstart', onDragStart, { passive: false });
+    function onPointerCancel(e) {
+      cleanListeners(e.pointerId);
+    }
+
+    function cleanListeners(pointerId) {
+      btn.removeEventListener('pointermove', onPointerMove);
+      btn.removeEventListener('pointerup', onPointerUp);
+      btn.removeEventListener('pointercancel', onPointerCancel);
+      btn.classList.remove('is-dragging');
+      isDragging = false;
+
+      try {
+        if (pointerId !== undefined) {
+          btn.releasePointerCapture(pointerId);
+        }
+      } catch (_) {}
+    }
+
+    btn.addEventListener('pointerdown', onPointerDown);
+
+    // Fallback standard click for accessibility & keyboard activation
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      safeToggle();
+    });
   }
 
   function toggleChatWindow(chatWin) {
@@ -272,8 +298,11 @@ When asked, provide exact details and helpful links to his projects or resumes.`
       chatWin.classList.remove('active');
     } else {
       chatWin.classList.add('active');
-      const input = document.getElementById('chatbotInput');
-      if (input) setTimeout(() => input.focus(), 300);
+      // Only autofocus input on desktop to prevent mobile virtual keyboard jumping
+      if (window.innerWidth > 768) {
+        const input = document.getElementById('chatbotInput');
+        if (input) setTimeout(() => input.focus(), 300);
+      }
     }
   }
 
