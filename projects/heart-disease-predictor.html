@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="../assets/css/chatbot.css" rel="stylesheet">
   
   <style>
     .project-header {
@@ -121,7 +122,7 @@
         <li><a href="../projects.html"><i class="bi bi-images navicon"></i> Projects</a></li>
         <li><a href="../index.html#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
         <li><a href="../index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
-        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Motivation/SOP</a></li>
         <li><a href="../index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
@@ -171,7 +172,7 @@
             </div>
             <div class="portfolio-description">
               <h2>Heart Disease Predictor</h2>
-              <p>A machine learning model that predicts the likelihood of heart disease based on medical attributes and lifestyle factors.</p>
+              <p>A clinical decision-support machine learning system trained on the UCI Heart Disease dataset that evaluates patient cardiovascular risk factors (blood pressure, cholesterol, resting ECG, max heart rate) utilizing calibrated ensemble classifiers and SHAP explanations at 87.5% cross-validated accuracy.</p>
               
               <h3>Technical Implementation</h3>
               <ul>
@@ -203,13 +204,13 @@
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/heart-disease-1.jpg" alt="Heart Disease Predictor Interface">
+                  <img src="../assets/img/portfolio/heart-disease-1.jpg" alt="Heart Disease Risk Prediction Clinical Interface">
                 </div>
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/heart-disease-2.jpg" alt="Feature Importance">
+                  <img src="../assets/img/portfolio/heart-disease-2.jpg" alt="Heart Disease Feature Importance and Correlation Analysis">
                 </div>
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/heart-disease-3.jpg" alt="Risk Assessment Report">
+                  <img src="../assets/img/portfolio/heart-disease-3.jpg" alt="Cardiovascular Risk Assessment Evaluation Report">
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -298,5 +299,7 @@
     });
   </script>
 
+  <!-- Portfolio AI Chatbot -->
+  <script src="../assets/js/chatbot.js"></script>
 </body>
 </html>

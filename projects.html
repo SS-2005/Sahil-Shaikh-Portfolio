@@ -34,6 +34,7 @@
     })();
   </script>
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/chatbot.css" rel="stylesheet">
 </head>
 
 <body class="projects-page">
@@ -101,6 +102,7 @@
         
         <!-- Project Filters -->
         <div class="project-filters">
+        <button data-filter="*" class="active">All</button>
         <button data-filter=".filter-dl">Deep Learning</button>
         <button data-filter=".filter-ai">Gen AI</button>
         <button data-filter=".filter-ml">Machine Learning</button>
@@ -114,11 +116,11 @@
           <div class="col-lg-4 col-md-6 project-item filter-dl">
             <div class="project-content">
               <div class="project-image">
-                <img src="assets/img/portfolio/face-recognition.jpg" alt="Face Recognition">
+                <img src="assets/img/portfolio/face-recognition.jpg" alt="Face Detection and Recognition System Preview">
               </div>
               <div class="project-info">
                 <h3>Face Recognition</h3>
-                <p>OpenCV based face detection and recognition system with database matching capabilities.</p>
+                <p>Real-time computer vision system combining OpenCV detection and FaceNet embeddings for identity matching.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/face-recognition.html" class="project-btn">View Details</a>
@@ -130,11 +132,11 @@
           <div class="col-lg-4 col-md-6 project-item filter-dl">
             <div class="project-content">
               <div class="project-image">
-                <img src="assets/img/portfolio/handscript.jpg" alt="HandScript">
+                <img src="assets/img/portfolio/handscript.jpg" alt="HandScript Handwriting Pattern Analysis Model">
               </div>
               <div class="project-info">
                 <h3>HandScript</h3>
-                <p>Handwriting pattern recognition system that analyzes and replicates individual writing styles.</p>
+                <p>Deep learning handwriting recognition model analyzing and mimicking unique individual cursive styles.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/handscript.html" class="project-btn">View Details</a>
@@ -165,11 +167,11 @@
           <div class="col-lg-4 col-md-6 project-item filter-ai">
             <div class="project-content">
               <div class="project-image">
-                <img src="assets/img/portfolio/3d-ai-avatar.jpg" alt="Object Placement System">
+                <img src="assets/img/portfolio/3d-ai-avatar.jpg" alt="3D AI Avatar - Real-time Speaking Avatar with Lip Sync">
               </div>
               <div class="project-info">
                 <h3>3D AI Avatar</h3>
-                <p>A real-time 3D AI avatar with almost zero latency.</p>
+                <p>Ultra-lightweight real-time 3D talking avatar for the web with viseme-based lip sync and low-latency speech synthesis.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/3d-ai-avatar.html" class="project-btn">View Details</a>
@@ -201,11 +203,11 @@
           <div class="col-lg-4 col-md-6 project-item filter-ai">
             <div class="project-content">
               <div class="project-image">
-                <img src="assets/img/portfolio/VSS.jpg" alt="VSS">
+                <img src="assets/img/portfolio/VSS.jpg" alt="Video Synthesis System - Automated Video Generation Pipeline">
               </div>
               <div class="project-info">
                 <h3>Video Synthesis System</h3>
-                <p>AI system that prompts in a topic and then generates a video explainning the topic in simple words.</p>
+                <p>Automated AI pipeline that synthesizes educational video presentations with narration and visuals from topic prompts.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/VSS.html" class="project-btn">View Details</a>
@@ -217,11 +219,11 @@
           <div class="col-lg-4 col-md-6 project-item filter-ai">
             <div class="project-content">
               <div class="project-image">
-                <img src="assets/img/portfolio/AI_Avatar.jpg" alt="VSS">
+                <img src="assets/img/portfolio/AI_Avatar.jpg" alt="AI Avatar Prototype - Real-Time Audio-to-Animation System">
               </div>
               <div class="project-info">
                 <h3>AI Avatar Proto-type System</h3>
-                <p>A real-time Avatar system that takes in the audio and generates a AI Avatar within seconds.</p>
+                <p>Neural avatar system that processes voice audio to generate synchronized talking animated characters in real time.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/AI_Avatar.html" class="project-btn">View Details</a>
@@ -237,7 +239,7 @@
               </div>
               <div class="project-info">
                 <h3>RAG System</h3>
-                <p>A smart AI Bot system that helps user in returning purchased products using RAG Implementation.</p>
+                <p>Intelligent customer support assistant utilizing ChromaDB vector search and LangChain to interpret return policies.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/RAG.html" class="project-btn">View Details</a>
@@ -415,7 +417,7 @@
               </div>
               <div class="project-info">
                 <h3>Fake Review Predictor</h3>
-                <p>A ML Model that predicts whether a review is fake or not, Trained on Kaggle Review Dataset</p>
+                <p>Supervised PyTorch neural network classifying customer reviews as genuine or fraudulent with high precision.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/FakeReview.html" class="project-btn">View Details</a>
@@ -483,11 +485,11 @@
         <div class="col-lg-4 col-md-6 project-item filter-pe">
             <div class="project-content">
               <div class="project-image">
-                <img src="assets/img/portfolio/checkmax.jpg" alt="CheckMax">
+                <img src="assets/img/portfolio/checkmax.jpg" alt="CheckMax Knowledge Assessment and Testing Platform">
               </div>
               <div class="project-info">
                 <h3>CheckMax</h3>
-                <p>Knowledge assessment platform that evaluates user understanding.</p>
+                <p>Interactive test evaluation and knowledge assessment portal leveraging NLP and semantic analysis for study material.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/checkmax.html" class="project-btn">View Details</a>
@@ -498,11 +500,11 @@
          <div class="col-lg-4 col-md-6 project-item filter-ai filter-pe">
             <div class="project-content">
               <div class="project-image">
-                <img src="assets/img/portfolio/DebateSystem.jpg" alt="DebateSystem">
+                <img src="assets/img/portfolio/DebateSystem.jpg" alt="Debate System Multi-Agent Argumentation Simulation">
               </div>
               <div class="project-info">
                 <h3>Debate System</h3>
-                <p>A AI Debate system thats performs a debate between two AI Agents and then evluates and gives  Winner.</p>
+                <p>Multi-agent AI debate platform built with LangGraph to orchestrate structured debates and objectively evaluate winners.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/DebateSystem.html" class="project-btn">View Details</a>
@@ -511,14 +513,30 @@
           </div>
 
           <!-- Cyber-Security Projects -->
+          <div class="col-lg-4 col-md-6 project-item filter-cyber filter-ai">
+            <div class="project-content">
+              <div class="project-image">
+                <img src="assets/img/portfolio/cyberarena1.png" alt="CyberArena - Autonomous LLM-Based Cybersecurity Simulation Platform">
+              </div>
+              <div class="project-info">
+                <h3>CyberArena</h3>
+                <p>Autonomous LLM multi-agent cybersecurity simulation platform orchestrating local LLMs inside isolated Linux VMs with ReAct loops and policy guardrails.</p>
+              </div>
+              <div class="project-actions">
+                <a href="projects/cyberarena.html" class="project-btn">View Details</a>
+                <a href="https://github.com/SS-2005/CyberArena-Autonomous-LLM-Based-Cybersecurity-Simulation" target="_blank" class="project-btn outline">GitHub</a>
+              </div>
+            </div>
+          </div>
+
           <div class="col-lg-4 col-md-6 project-item filter-cyber">
             <div class="project-content">
               <div class="project-image">
-                <img src="assets/img/portfolio/scrapewise.jpg" alt="ScrapeWise">
+                <img src="assets/img/portfolio/scrapewise.jpg" alt="ScrapeWise Web Intelligence and Scam Detection Tool">
               </div>
               <div class="project-info">
                 <h3>ScrapeWise</h3>
-                <p>Web scraping security tool that extracts contacts and detects potential scams.</p>
+                <p>Cybersecurity web scraper that extracts contact details while detecting scam indicators and generating risk reports.</p>
               </div>
               <div class="project-actions">
                 <a href="projects/scrapewise.html" class="project-btn">View Details</a>
@@ -616,6 +634,9 @@
       }
     });
   </script>
+
+  <!-- Portfolio AI Chatbot -->
+  <script src="assets/js/chatbot.js"></script>
 
 </body>
 </html>

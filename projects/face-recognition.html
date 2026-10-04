@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="../assets/css/chatbot.css" rel="stylesheet">
   
   <style>
     .project-header {
@@ -121,7 +122,7 @@
         <li><a href="../projects.html"><i class="bi bi-images navicon"></i> Projects</a></li>
         <li><a href="../index.html#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
         <li><a href="../index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
-        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Motivation/SOP</a></li>
         <li><a href="../index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
@@ -170,7 +171,7 @@
             </div>
             <div class="portfolio-description">
               <h2>Face Detection and Recognition System</h2>
-              <p>A face recognition system that detects faces and matches them against a database of known individuals.</p>
+              <p>A real-time computer vision and facial biometrics pipeline that performs high-speed face detection via Haar cascades and deep feature representation using 128-dimensional FaceNet embeddings, achieving 94.3% identity verification accuracy on test benchmarks.</p>
               
               <h3>Technical Architecture</h3>
               <ul>
@@ -202,10 +203,10 @@
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/face-1.jpg" alt="Face Detection Interface">
+                  <img src="../assets/img/portfolio/face-1.jpg" alt="Face Detection and Bounding Box Extraction Interface">
                 </div>
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/face-recognition.jpg" alt="Recognition Samples">
+                  <img src="../assets/img/portfolio/face-recognition.jpg" alt="FaceNet Identity Verification and Recognition Samples">
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -294,5 +295,7 @@
     });
   </script>
 
+  <!-- Portfolio AI Chatbot -->
+  <script src="../assets/js/chatbot.js"></script>
 </body>
 </html>

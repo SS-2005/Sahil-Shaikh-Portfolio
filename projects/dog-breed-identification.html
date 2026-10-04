@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="../assets/css/chatbot.css" rel="stylesheet">
   
   <style>
     .project-header {
@@ -110,7 +111,7 @@
         <li><a href="../projects.html"><i class="bi bi-images navicon"></i> Projects</a></li>
         <li><a href="../index.html#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
         <li><a href="../index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
-        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Domains</a></li>
+        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Motivation/SOP</a></li>
         <li><a href="../index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
@@ -168,7 +169,7 @@
             </div>
             <div class="portfolio-description">
               <h2>Dog Breed Identification Project</h2>
-              <p>A sophisticated deep learning model capable of identifying 120 different dog breeds from images with high accuracy.</p>
+              <p>A transfer learning computer vision classifier leveraging fine-tuned MobileNetV2 architecture to classify canine photos across 120 distinct dog breeds with 92% validation accuracy, complete with top-3 confidence rankings and breed characteristics.</p>
               
               <h3>Technical Details</h3>
               <ul>
@@ -193,13 +194,13 @@
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/dog-vision-1.jpg" alt="Dog Breed Identification Interface">
+                  <img src="../assets/img/portfolio/dog-vision-1.jpg" alt="Dog Breed Identification Web Interface">
                 </div>
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/dog-vision-2.jpg" alt="Model Architecture">
+                  <img src="../assets/img/portfolio/dog-vision-2.jpg" alt="MobileNetV2 Transfer Learning Architecture Diagram">
                 </div>
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/dog-vision-3.jpg" alt="Sample Predictions">
+                  <img src="../assets/img/portfolio/dog-vision-3.jpg" alt="Canine Breed Classification Sample Predictions with Confidence Scores">
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -313,5 +314,7 @@
     });
   </script>
 
+  <!-- Portfolio AI Chatbot -->
+  <script src="../assets/js/chatbot.js"></script>
 </body>
 </html>

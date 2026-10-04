@@ -78,27 +78,21 @@
   }
 
   /**
-   * Skills Modal
+   * Skills Box UI Toggle
    */
   const viewMoreBtn = document.getElementById('viewMoreSkills');
-  const skillsModal = document.getElementById('skillsModal');
-  const closeModal = document.querySelector('.close');
+  const skillsBoxContainer = document.getElementById('skillsBoxContainer');
   
-  if (viewMoreBtn && skillsModal) {
+  if (viewMoreBtn && skillsBoxContainer) {
     viewMoreBtn.addEventListener('click', function() {
-      skillsModal.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-    });
-    
-    closeModal.addEventListener('click', function() {
-      skillsModal.style.display = 'none';
-      document.body.style.overflow = '';
-    });
-    
-    window.addEventListener('click', function(event) {
-      if (event.target === skillsModal) {
-        skillsModal.style.display = 'none';
-        document.body.style.overflow = '';
+      const isHidden = skillsBoxContainer.style.display === 'none' || skillsBoxContainer.style.display === '';
+      if (isHidden) {
+        skillsBoxContainer.style.display = 'block';
+        viewMoreBtn.innerHTML = '<i class="bi bi-chevron-up me-2"></i>Show Less Skills';
+        skillsBoxContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        skillsBoxContainer.style.display = 'none';
+        viewMoreBtn.innerHTML = '<i class="bi bi-grid-3x3-gap-fill me-2"></i>View All Skills (Box View)';
       }
     });
   }
