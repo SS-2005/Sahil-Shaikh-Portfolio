@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Local Document RAG Assistant - Sahil Shaikh Portfolio</title>
+  <meta content="Detailed view of RAG: Local Document Question-Answering Assistant - Privacy-preserving document QA using FastAPI, TF-IDF bi-grams, and local LLMs" name="description">
+  <meta content="RAG, Retrieval Augmented Generation, Local LLMs, Ollama, LM Studio, FastAPI, TF-IDF, Python, NLP, python-docx, Cosine Similarity" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="../assets/css/chatbot.css" rel="stylesheet">
+  
+  <style>
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .live-demo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .live-demo-btn:hover {
+      background-color: #218838;
+      color: white;
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      background: rgba(20, 157, 221, 0.1);
+      color: #149ddd;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin: 3px;
+      font-size: 0.85em;
+    }
+
+    .rag-badge {
+      display: inline-block;
+      background: rgba(40, 167, 69, 0.15);
+      color: #28a745;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin: 3px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+  </style>
+  <script id="portfolio-theme-bootstrap">
+    (() => {
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+    })();
+  </script>
+</head>
+
+<body class="project-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+      <label for="darkModeToggle" class="toggle-label">
+        <i class="bi bi-moon"></i>
+        <i class="bi bi-sun"></i>
+        <span class="toggle-ball"></span>
+      </label>
+    </div>
+
+    <div class="profile-img">
+      <img src="../assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="../index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Sahil Shaikh</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://medium.com/@SS-2005" class="medium"><i class="bi bi-medium"></i></a>
+      <a href="https://leetcode.com/u/SS-2005/" class="code"><i class="bi bi-code-square"></i></a>
+      <a href="https://www.linkedin.com/in/sahilshaikh110205/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="../index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="../index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="../index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="../projects.html"><i class="bi bi-images navicon"></i> Projects</a></li>
+        <li><a href="../index.html#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
+        <li><a href="../index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
+        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Motivation/SOP</a></li>
+        <li><a href="../index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Local Document RAG Assistant</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li class="current">Local Document RAG Assistant</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Project Details Section -->
+    <section id="project-details" class="project-details section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="portfolio-info">
+              <div class="project-header">
+                <h3>Project Information</h3>
+                <a href="https://github.com/SS-2005/RAG" target="_blank" class="github-link">
+                  <i class="bi bi-github"></i> View on GitHub
+                </a>
+              </div>
+              <ul>
+                <li><strong>Category</strong>: Generative AI / NLP / Information Retrieval</li>
+                <li>
+                  <strong>Technologies</strong>: 
+                  <span class="tech-badge">Python 3.10+</span>
+                  <span class="tech-badge">FastAPI</span>
+                  <span class="tech-badge">TF-IDF Vectorizer</span>
+                  <span class="tech-badge">Word Bi-grams</span>
+                  <span class="tech-badge">Cosine Similarity</span>
+                  <span class="tech-badge">Ollama (LLaMA 3)</span>
+                  <span class="tech-badge">LM Studio / vLLM</span>
+                  <span class="tech-badge">python-docx</span>
+                  <span class="tech-badge">Pytest</span>
+                </li>
+                <li><strong>Document Ingestion</strong>: <span class="rag-badge">DOCX files (up to 25 MB) with XML Fallback</span></li>
+                <li><strong>Chunking Strategy</strong>: 600 characters with 100-character overlap</li>
+                <li><strong>Retrieval Engine</strong>: Sparse TF-IDF + Adjacent Bi-grams + Cosine Similarity</li>
+                <li><strong>Local Inference</strong>: 100% On-Premises / Offline (Zero Cloud Data Leakage)</li>
+                <li><strong>Testing Suite</strong>: 15 Automated Unit & Integration Tests Passing</li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>RAG: Local Document Question-Answering Assistant</h2>
+              <p>A locally hosted, privacy-preserving document question-answering system combining an information-retrieval pipeline with local language model inference. Users upload Microsoft Word (.docx) documents, and the assistant segments, indexes, and retrieves the most relevant passages to synthesize answers strictly grounded in the uploaded context, preventing hallucinations and preserving complete data privacy without third-party API dependencies.</p>
+
+              <h3>How the RAG Pipeline Works</h3>
+              <p>The system operates in two distinct, coordinated stages:</p>
+              <ul>
+                <li><strong>Stage A: Document Ingestion & Indexing</strong>
+                  <ul>
+                    <li><em>Document Ingestion</em>: Accepts <code>.docx</code> files up to 25 MB with validation against empty uploads.</li>
+                    <li><em>Text Extraction</em>: <code>app/docx_parser.py</code> extracts paragraphs and structured tables using <code>python-docx</code>, with an automated XML parsing fallback reading <code>word/document.xml</code> to guarantee complete data recovery.</li>
+                    <li><em>Text Chunking</em>: <code>app/chunker.py</code> segments the document into 600-character chunks with a 100-character sliding overlap, prioritizing paragraph breaks, then sentence boundaries, and finally word spaces to preserve context at boundaries.</li>
+                    <li><em>Vector Representation</em>: <code>app/vector_store.py</code> constructs a sparse TF-IDF representation combined with word bi-grams to capture multi-word terminology (e.g., &ldquo;neural network&rdquo;) alongside individual keywords.</li>
+                  </ul>
+                </li>
+                <li><strong>Stage B: Question Answering & Grounding</strong>
+                  <ul>
+                    <li><em>Query Vectorization & Ranking</em>: Natural-language questions are converted into matching TF-IDF vectors, and cosine similarity computes relevance against all indexed chunks.</li>
+                    <li><em>Threshold Filtering</em>: Configurable top-k chunks (default 4, selectable 1 to 8) are retrieved, filtering out any passages falling below the 0.01 similarity threshold.</li>
+                    <li><em>Prompt Construction & Grounding</em>: The RAG engine injects the retrieved context chunks into a constrained prompt directing the model to answer exclusively from the supplied text.</li>
+                    <li><em>Hallucination Fallback</em>: If no retrieved chunks satisfy the query threshold, the system returns a safe fallback: <em>&ldquo;I cannot find the answer in the uploaded document.&rdquo;</em></li>
+                    <li><em>Source Attribution</em>: The UI renders the model's generated answer alongside exact retrieved source excerpts and similarity scores for full auditability.</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <h3>Modular Implementation Architecture</h3>
+              <ul>
+                <li><code>app/config.py</code>: Manages pipeline parameters, thresholds, and server ports.</li>
+                <li><code>app/docx_parser.py</code>: Robust Word document parser with XML fallback.</li>
+                <li><code>app/chunker.py</code>: Boundary-aware text chunking with sliding overlap.</li>
+                <li><code>app/vector_store.py</code>: In-memory TF-IDF indexer with bi-grams and cosine ranking.</li>
+                <li><code>app/llm_client.py</code>: Multi-backend local client for Ollama, LM Studio, and offline mode.</li>
+                <li><code>app/rag_engine.py</code>: End-to-end retrieval orchestration and grounded prompt builder.</li>
+                <li><code>app/main.py</code>: Asynchronous FastAPI server exposing REST API endpoints.</li>
+                <li><code>static/</code>: Responsive browser interface featuring dark theme, upload zone, and source explorer.</li>
+              </ul>
+
+              <h3>Local LLM Integration & Privacy</h3>
+              <p>The application supports three flexible operating modes:</p>
+              <ul>
+                <li><strong>Ollama Integration</strong>: Connects to local models (e.g., LLaMA 3, Mistral, Qwen) via <code>http://127.0.0.1:11434</code>.</li>
+                <li><strong>LM Studio / vLLM Integration</strong>: Connects to OpenAI-compatible local inference endpoints via <code>http://127.0.0.1:1234/v1</code>.</li>
+                <li><strong>Offline / Demo Mode</strong>: Performs grounded passage retrieval and extraction without running an external LLM server, ideal for lightweight testing.</li>
+              </ul>
+
+              <h3>Testing & Validation</h3>
+              <ul>
+                <li><strong>15 Automated Pytest Cases</strong>: Executed via <code>python -m pytest tests/ -v</code>.</li>
+                <li><strong>Verified Modules</strong>: Document parsing with table extraction, chunk boundary integrity, TF-IDF scoring and bi-gram generation, grounding prompts, fallback triggers, and FastAPI REST endpoints.</li>
+              </ul>
+
+              <div class="mt-4">
+                <a href="https://github.com/SS-2005/RAG" target="_blank" class="live-demo-btn">
+                  <i class="bi bi-github"></i> View GitHub Repository
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="../assets/img/portfolio/llm-rag1.jpg" alt="RAG Local Document Assistant - Document Upload and Chat Interface" class="img-fluid rounded shadow">
+                </div>
+                <div class="swiper-slide">
+                  <img src="../assets/img/portfolio/llm-rag2.jpg" alt="RAG Local Document Assistant - Retrieved Context Chunks and Similarity Scores" class="img-fluid rounded shadow">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="quote mt-2 text-center">
+        <p>"Turning data into insights, and insights into impact."</p>
+        <div class="credits mt-2">
+          Made with ❤️ using HTML, CSS, and JavaScript
+        </div>
+        <div class="copyright text-center">
+          <p>© <span>Copyright</span> <strong class="px-1 sitename">Sahil Shaikh</strong> <span>All Rights
+              Reserved</span></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    // Initialize Swiper
+    document.addEventListener('DOMContentLoaded', function() {
+      new Swiper('.portfolio-details-slider', {
+        speed: 400,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        }
+      });
+      
+      // Dark mode toggle persistence
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+          document.body.classList.add('dark-mode');
+          darkModeToggle.checked = true;
+        }
+        
+        darkModeToggle.addEventListener('change', function() {
+          if (this.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Portfolio AI Chatbot -->
+  <script src="../assets/js/chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Blockchain Voting System - Sahil Shaikh Portfolio</title>
+  <meta content="Detailed view of Blockchain Voting System - Decentralized Ethereum Voting DApp with Solidity, Hardhat, and MetaMask" name="description">
+  <meta content="Blockchain, Ethereum, Solidity, Hardhat, Ethers.js, MetaMask, DApp, Web3, Smart Contracts, Decentralized Voting" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="../assets/css/chatbot.css" rel="stylesheet">
+  
+  <style>
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .live-demo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    .live-demo-btn:hover {
+      background-color: #218838;
+      color: white;
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      background: rgba(20, 157, 221, 0.1);
+      color: #149ddd;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin: 3px;
+      font-size: 0.85em;
+    }
+
+    .bc-badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.15);
+      color: #d4af37;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin: 3px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+  </style>
+  <script id="portfolio-theme-bootstrap">
+    (() => {
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.toggle('dark-mode', theme === 'dark');
+    })();
+  </script>
+</head>
+
+<body class="project-page">
+
+  <header id="header" class="header dark-background d-flex flex-column">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+      <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+      <label for="darkModeToggle" class="toggle-label">
+        <i class="bi bi-moon"></i>
+        <i class="bi bi-sun"></i>
+        <span class="toggle-ball"></span>
+      </label>
+    </div>
+
+    <div class="profile-img">
+      <img src="../assets/img/my_img.jpg" alt="Sahil Shaikh" class="img-fluid rounded-circle">
+    </div>
+
+    <a href="../index.html" class="logo d-flex align-items-center justify-content-center">
+      <h1 class="sitename">Sahil Shaikh</h1>
+    </a>
+
+    <div class="social-links text-center">
+      <a href="https://github.com/SS-2005" class="github"><i class="bi bi-github"></i></a>
+      <a href="https://medium.com/@SS-2005" class="medium"><i class="bi bi-medium"></i></a>
+      <a href="https://leetcode.com/u/SS-2005/" class="code"><i class="bi bi-code-square"></i></a>
+      <a href="https://www.linkedin.com/in/sahilshaikh110205/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="../index.html#hero"><i class="bi bi-house navicon"></i>Home</a></li>
+        <li><a href="../index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+        <li><a href="../index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+        <li><a href="../projects.html"><i class="bi bi-images navicon"></i> Projects</a></li>
+        <li><a href="../index.html#achievements"><i class="bi bi-trophy navicon"></i> Achievements</a></li>
+        <li><a href="../index.html#services"><i class="bi bi-hdd-stack navicon"></i> Skills</a></li>
+        <li><a href="../service-details.html"><i class="bi bi-gear navicon"></i> Motivation/SOP</a></li>
+        <li><a href="../index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Blockchain Voting System</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li class="current">Blockchain Voting System</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Project Details Section -->
+    <section id="project-details" class="project-details section">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="portfolio-info">
+              <div class="project-header">
+                <h3>Project Information</h3>
+                <a href="https://github.com/SS-2005/Voting-System-Using-Block-Chain" target="_blank" class="github-link">
+                  <i class="bi bi-github"></i> View on GitHub
+                </a>
+              </div>
+              <ul>
+                <li><strong>Category</strong>: Blockchain / Web3 / DApp</li>
+                <li>
+                  <strong>Technologies</strong>: 
+                  <span class="tech-badge">Solidity 0.8.20</span>
+                  <span class="tech-badge">Ethereum (EVM)</span>
+                  <span class="tech-badge">Hardhat 2.22.0</span>
+                  <span class="tech-badge">Ethers.js v6</span>
+                  <span class="tech-badge">MetaMask</span>
+                  <span class="tech-badge">JavaScript</span>
+                  <span class="tech-badge">HTML5 / CSS3</span>
+                  <span class="tech-badge">Mocha & Chai</span>
+                </li>
+                <li><strong>Smart Contract</strong>: <span class="bc-badge">contracts/Voting.sol</span></li>
+                <li><strong>Network Architecture</strong>: Local Hardhat EVM (Chain ID: 31337)</li>
+                <li><strong>Access Control & Rules</strong>: Whitelist-Only, One Vote Per Wallet, Immutable Tally</li>
+                <li><strong>Testing Suite</strong>: 25 Automated Mocha/Chai Unit & Integration Tests Passing</li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>Blockchain-Based Decentralized Voting System</h2>
+              <p>A decentralized voting decentralized application (DApp) on Ethereum where an administrator manages candidate registration and voter eligibility, while authorized users securely cast votes via MetaMask. Unlike conventional voting systems that rely on a central database or administrator to store and count votes, this system enforces voting rules, eligibility checks, and real-time tallies directly on-chain using an immutable Solidity smart contract.</p>
+
+              <h3>System Architecture</h3>
+              <ul>
+                <li><strong>Frontend Layer (HTML5 · CSS3 · Vanilla JS)</strong>: Responsive, dark-themed user interface displaying real-time election status, candidate profiles, and live results.</li>
+                <li><strong>Web3 Connection & Provider (MetaMask + Ethers.js v6)</strong>: Manages wallet connection, account switching, transaction signing, and JSON-RPC communication with the blockchain.</li>
+                <li><strong>Smart Contract Layer (Voting.sol)</strong>: Autonomous Solidity smart contract compiled and deployed to the EVM, executing access control, election lifecycle state transitions, vote validation, and tallying.</li>
+                <li><strong>Local EVM Development Network (Hardhat)</strong>: Local Ethereum network (Chain ID 31337) providing deterministic block generation, test accounts, and rapid deployment automation.</li>
+              </ul>
+
+              <h3>Election Lifecycle & State Machine</h3>
+              <p>The core contract defines three strictly enforced stages:</p>
+              <ul>
+                <li><strong>Stage 0 &mdash; NotStarted</strong>: The administrator registers candidates (minimum of 2 required) and whitelists eligible voter wallet addresses. Voting transactions are blocked.</li>
+                <li><strong>Stage 1 &mdash; Ongoing</strong>: The administrator starts the election. Candidate registration locks permanently, and whitelisted voters cast exactly one vote each.</li>
+                <li><strong>Stage 2 &mdash; Ended</strong>: The administrator permanently closes the election. All further voting transactions are disabled while the final tally remains immutably readable.</li>
+              </ul>
+
+              <h3>Main Smart Contract Functions</h3>
+              <ul>
+                <li><code>addCandidate(name, description)</code>: Enables administrator to register candidates before voting starts.</li>
+                <li><code>registerVoter(address)</code>: Adds an eligible wallet to the voter whitelist and rejects duplicate registrations.</li>
+                <li><code>startElection()</code>: Validates preconditions (e.g., minimum 2 candidates) and activates the voting stage.</li>
+                <li><code>endElection()</code>: Permanently closes the election and locks the results.</li>
+                <li><code>vote(candidateId)</code>: Validates that the sender is whitelisted, the election is ongoing, and the wallet has not already voted before updating the candidate's tally.</li>
+                <li><code>getCandidates()</code>, <code>getVoterStatus(address)</code>, <code>getResults()</code>: Public read-only view functions retrieving contract state without gas fees.</li>
+              </ul>
+
+              <h3>On-Chain Double-Voting Prevention</h3>
+              <p>Double voting is prevented directly inside the EVM smart contract logic rather than depending on client-side frontend checks. When an authorized voter submits a transaction, the contract verifies their prior voting flag. If the voter attempts to submit a second vote, the smart contract reverts the transaction immediately, preventing unauthorized or duplicate votes even if an attacker attempts to interact directly with the contract via raw JSON-RPC calls.</p>
+
+              <h3>Testing & Validation</h3>
+              <ul>
+                <li><strong>25 Comprehensive Test Cases</strong>: Automated Mocha and Chai test suite in <code>test/Voting.js</code> executed via <code>npx hardhat test</code>.</li>
+                <li><strong>Covered Scenarios</strong>: Candidate registration constraints, voter whitelist verification, duplicate vote prevention, unauthorized administrative execution rejection, election state transition boundaries, and tally calculations.</li>
+              </ul>
+
+              <div class="mt-4">
+                <a href="https://github.com/SS-2005/Voting-System-Using-Block-Chain" target="_blank" class="live-demo-btn">
+                  <i class="bi bi-github"></i> View GitHub Repository
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="../assets/img/portfolio/BC1.jpg" alt="Blockchain Voting System - Administrator Panel and Candidate Setup" class="img-fluid rounded shadow">
+                </div>
+                <div class="swiper-slide">
+                  <img src="../assets/img/portfolio/BC2.jpg" alt="Blockchain Voting System - MetaMask Wallet Integration and Live Voting Dashboard" class="img-fluid rounded shadow">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="quote mt-2 text-center">
+        <p>"Turning data into insights, and insights into impact."</p>
+        <div class="credits mt-2">
+          Made with ❤️ using HTML, CSS, and JavaScript
+        </div>
+        <div class="copyright text-center">
+          <p>© <span>Copyright</span> <strong class="px-1 sitename">Sahil Shaikh</strong> <span>All Rights
+              Reserved</span></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    // Initialize Swiper
+    document.addEventListener('DOMContentLoaded', function() {
+      new Swiper('.portfolio-details-slider', {
+        speed: 400,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
+        }
+      });
+      
+      // Dark mode toggle persistence
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      if (darkModeToggle) {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+          document.body.classList.add('dark-mode');
+          darkModeToggle.checked = true;
+        }
+        
+        darkModeToggle.addEventListener('change', function() {
+          if (this.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Portfolio AI Chatbot -->
+  <script src="../assets/js/chatbot.js"></script>
+</body>
+</html>
